@@ -52,3 +52,25 @@ En conjunto, este proyecto representa una fusión de conocimientos técnicos, cr
 - Menús especializados por área laboral (ej. desarrollador, abogado, ingeniero)
 - Habilidades generales y técnicas organizadas visualmente
 - Accesibilidad básica y optimización para motores de búsqueda (SEO)
+
+## 📥 Instalación y ejecución local del proyecto
+
+# 1. Clona el repositorio
+git clone https://github.com/KruseCyrux/VitaNova.git
+
+# 2. Entra a la carpeta del proyecto
+cd VitaNova
+
+# 3. Instala las dependencias
+npm install
+
+# 4. Inicia el servidor de desarrollo
+npm run dev
+
+# 5. Asegúrate de tener Node.js 18 o superior y npm instalados en tu equipo.
+
+📦 Tecnologías usadas
+- React + Vite
+- CSS Modules (estilos personalizados)
+- localStorage para persistencia
+- Proyecto modular, escalable y editable en vivo
