@@ -69,7 +69,7 @@ npm run dev
 
 # 5. Asegúrate de tener Node.js 18 o superior y npm instalados en tu equipo.
 
-📦 Tecnologías usadas
+## 📦 Tecnologías usadas
 - React + Vite
 - CSS Modules (estilos personalizados)
 - localStorage para persistencia
