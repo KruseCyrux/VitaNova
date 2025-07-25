@@ -1,34 +1,40 @@
-.container {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 2rem auto;
+.btnAgregar {
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.section {
-  margin-bottom: 2rem;
+.btnAgregar:hover {
+  background-color: #218838;
 }
 
-.section h3 {
-  margin-bottom: 0.8rem;
-  font-size: 1.3rem;
-  color: #333;
+.btnEliminar {
+  margin-left: 0.5rem;
+  background-color: transparent;
+  color: red;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
 .skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.4rem 0.6rem;
   background-color: #f2f2f2;
-  margin: 0.2rem 0;
+  margin: 0.3rem 0;
   border-radius: 6px;
 }
 
-.select {
+.input {
   width: 100%;
-  padding: 0.6rem;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem;
+  margin-top: 0.4rem;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
