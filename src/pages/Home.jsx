@@ -1,11 +1,16 @@
-import ProfileCard from '/src/components/ProfileCard';
-import Skills from '../components/Skills';
+import { useNavigate } from 'react-router-dom';
+import '../styles/main.css';
 
-export default function Home() {
+const Home = () => {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <ProfileCard />
-      <Skills />
+    <div className="home-container">
+      <h1>VitaNova</h1>
+      <p>Tu currículum, tu historia, tu diseño.</p>
+      <button onClick={() => navigate('/editor')}>Comenzar</button>
     </div>
   );
-}
+};
+
+export default Home;

@@ -1,0 +1,32 @@
+.education-editor {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.education-editor input,
+.education-editor textarea {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.education-editor textarea {
+  min-height: 60px;
+}
+
+.delete-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #b52b27;
+}

@@ -1,19 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import styles from './styles/App.module.css';
+import React, { useState } from "react";
+import CVEditor from "./components/CVEditor";
+import CVPreview from "./components/CVPreview";
+import initialData from "./data/initialData";
 
-export default function App() {
+function App() {
+  const [cvData, setCvData] = useState(initialData);
+
   return (
-    <Router>
-      <div className={styles.container}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="app-container">
+      <header>
+        <h1>VitaNova - Generador de CV</h1>
+      </header>
+      <main>
+        <CVEditor cvData={cvData} setCvData={setCvData} />
+        <CVPreview cvData={cvData} />
+      </main>
+      <footer>
+        <p>© 2025 VitaNova - Tu CV profesional en línea</p>
+      </footer>
+    </div>
   );
 }
+
+export default App;
