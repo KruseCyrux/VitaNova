@@ -41,19 +41,28 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 
 1. Clona el repositorio
 
-git clone https://github.com/tuusuario/VitaNova.git
+`git clone https://github.com/KruseCyrux/VitaNova.git`
 
-cd VitaNova
+`cd VitaNova`
 
 2. Instala las dependencias
 
-npm install
+`npm install`
 
 3. Configura las variables de entorno en .env con tu proyecto Firebase.
 
 4. Ejecuta el servidor de desarrollo
 
-npm run dev
+`npm run dev`
+
+5. Antes de trabajar:
+
+`git pull origin master`
+
+6. Después de hacer cambios:
+`git add .`
+`git commit -m "Descripción clara del cambio"`
+`git push origin main`
 
 ---
 
@@ -67,14 +76,40 @@ npm run dev
 
 ---
 
-### Próximos pasos y roadmap
-- Implementar sistema de autenticación (login y registro).
-- Crear editor avanzado de CVs con secciones dinámicas.
-- Implementar guardado y carga de CVs en Firebase Firestore.
-- Añadir exportación a PDF y múltiples plantillas.
-- Incorporar personalización visual y modo oscuro/claro.
-- Añadir soporte multilenguaje.
-- Desplegar en Firebase Hosting y crear tutorial para colaboradores.
+## 🚀 Progreso actual del proyecto
+
+### ✅ **Sesión 1: Inicialización del proyecto**
+- Proyecto base creado con **React + Vite**
+- Estructura de carpetas modular (`components/`, `pages/`, `firebase/`, `styles/`, `utils/`, etc.)
+- Sistema de rutas con **React Router DOM**
+- Instalación de dependencias base
+
+### ✅ **Sesión 2: Autenticación con Firebase**
+- Integración completa de **Firebase**
+- Registro y login de usuarios con **correo y contraseña**
+- Manejo de errores personalizados
+- Redirección y validaciones en tiempo real
+- Protección básica de rutas
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- React + Vite
+- Firebase (Auth, Firestore, Hosting)
+- React Router DOM
+- CSS Modules
+- JavaScript moderno (ES6+)
+
+---
+## 🎨 Paleta de colores principal
+
+Inspirada en el logo oficial:
+
+- Azul oscuro `#0D1B2A`
+- Azul claro `#1B263B`
+- Blanco puro `#FFFFFF`
+- Dorado/Amarillo acento `#FFD700`
 
 ---
 
