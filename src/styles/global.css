@@ -1,0 +1,80 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html, #root {
+  height: 100%;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Contenedor principal */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #0d1117;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.logo img {
+  filter: invert(1);
+}
+
+.nav-menu ul {
+  list-style: none;
+}
+
+.nav-menu ul li {
+  margin-bottom: 1.2rem;
+}
+
+.nav-menu ul li a {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-menu ul li a:hover {
+  color: #58a6ff;
+}
+
+/* Contenido principal */
+.main-content {
+  flex-grow: 1;
+  padding: 2rem 3rem;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.main-content h1 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.main-content p {
+  font-size: 1.125rem;
+  color: #444;
+}
