@@ -29,8 +29,8 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 | Nombre Completo                        | Rol                         | Contacto                  |
 |----------------------------------------|------------------------------|---------------------------|
 | Martin Tonathiut Mendoza Rangel        | Desarrollador Front & Backend | cracbv@gmail.com          |
-| Ricardo Alejandro Martinez Reynoso     | Desarrollador Front & Backend | companero1@email.com      |
-| Luis Enrique Ramirez Armenta           | Desarrollador Front & Backend | companero2@email.com      |
+| Ricardo Alejandro Martinez Reynoso     | Desarrollador Front & Backend | ricardoalejandroreynoso3@gmail.com      |
+| Luis Enrique Ramirez Armenta           | Desarrollador Front & Backend | luvare1213@gmail.com     |
 
 
 > *Nota:* Los miembros pueden editar y contribuir al repositorio para mantener y mejorar la aplicación.
@@ -54,6 +54,8 @@ npm install
 
 npm run dev
 
+---
+
 ### Estructura del Proyecto
 ```
 ├── src/ # Código fuente React (componentes, estilos, configuración Firebase)
@@ -61,6 +63,8 @@ npm run dev
 ├── .env # Variables de entorno para Firebase
 └── firebase/ # Configuración e inicialización de Firebase
 ```
+
+---
 
 ### Próximos pasos y roadmap
 - Implementar sistema de autenticación (login y registro).
@@ -71,8 +75,10 @@ npm run dev
 - Añadir soporte multilenguaje.
 - Desplegar en Firebase Hosting y crear tutorial para colaboradores.
 
+---
+
 ### Contacto y soporte
 Para dudas, sugerencias o reportes de errores, contacta al líder del proyecto:
-Krusemann Cyrux — krusemann.cyrux@email.com
+Krusemann Cyrux — cracbv@gmail.com
 
 © 2025 VitaNova. Todos los derechos reservados.
