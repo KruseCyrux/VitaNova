@@ -42,6 +42,7 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 1. Clona el repositorio
 
 git clone https://github.com/tuusuario/VitaNova.git
+
 cd VitaNova
 
 2. Instala las dependencias
