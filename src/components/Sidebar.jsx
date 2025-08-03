@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FiUser, FiFileText, FiSettings, FiLogOut } from "react-icons/fi";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase/config";
+import { auth } from "../firebase/firebaseConfig";
 
 const Sidebar = () => {
   const navigate = useNavigate();

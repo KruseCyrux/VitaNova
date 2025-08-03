@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from "../firebase/config";
+import { auth } from "../firebase/firebaseConfig";
 
 const Header = () => {
   const user = auth.currentUser;

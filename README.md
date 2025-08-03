@@ -61,7 +61,9 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 
 6. Después de hacer cambios:
 `git add .`
+
 `git commit -m "Descripción clara del cambio"`
+
 `git push origin main`
 
 ---
@@ -90,6 +92,13 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 - Manejo de errores personalizados
 - Redirección y validaciones en tiempo real
 - Protección básica de rutas
+
+### ✅ **Sesión 3: Dashboard del Usuario.**
+- Sidebar fija y moderna con colores alineados al logo de VitaNova (azul oscuro, azul claro, dorado).
+- Navegación fluida entre las secciones internas: Login, Dashboard.
+- Botón de Cerrar sesión integrado (logout con Firebase).
+- Encabezado (`Header`) mostrando al usuario activo (correo).
+- Base del diseño del panel administrativo.
 
 ---
 
