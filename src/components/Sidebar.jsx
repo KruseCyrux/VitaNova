@@ -1,26 +1,37 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { FiUser, FiFileText, FiSettings, FiLogOut } from "react-icons/fi";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/config";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    navigate("/login");
+  };
+
   return (
-    <aside className="sidebar">
-      <div className="logo">
-        <img
-          src="/vite.svg"
-          alt="VitaNova Logo"
-          style={{ width: "40px", height: "40px" }}
-        />
-        <span>VitaNova</span>
-      </div>
-      <nav className="nav-menu">
+    <div className="sidebar">
+      <h1 className="logo">VitaNova</h1>
+      <nav>
         <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Crear CV</a></li>
-          <li><a href="#">Mis CVs</a></li>
-          <li><a href="#">Perfil</a></li>
-          <li><a href="#">Configuración</a></li>
+          <li onClick={() => navigate("/dashboard")}>
+            <FiUser /> Datos Personales
+          </li>
+          <li onClick={() => navigate("/editor")}>
+            <FiFileText /> Generar CV
+          </li>
+          <li onClick={() => navigate("/ajustes")}>
+            <FiSettings /> Ajustes
+          </li>
         </ul>
       </nav>
-    </aside>
+      <button className="logout-btn" onClick={handleLogout}>
+        <FiLogOut /> Cerrar sesión
+      </button>
+    </div>
   );
 };
 

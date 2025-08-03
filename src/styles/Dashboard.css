@@ -1,0 +1,64 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: #002d62; /* Azul oscuro */
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar h1.logo {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #ffd700; /* Dorado */
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav li {
+  margin: 20px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar nav li:hover {
+  color: #87cefa; /* Azul claro */
+}
+
+.logout-btn {
+  margin-top: auto;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f4f7fc;
+}
+
+.header {
+  background-color: #ffffff;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.user-info {
+  font-size: 14px;
+}
