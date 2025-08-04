@@ -1,21 +1,22 @@
-import React from "react";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import "../styles/dashboard.css";
+import React from 'react';
+import Sidebar from '../components/Sidebar';
+import ProfileSection from '../components/sections/ProfileSection';
+import ExperienceSection from '../components/sections/ExperienceSection';
+import SkillsSection from '../components/sections/SkillsSection';
+import '../styles/dashboard.css';
 
-const Dashboard = () => {
+function Dashboard() {
   return (
-    <div className="dashboard">
+    <div className="dashboard-container">
       <Sidebar />
-      <div className="main-content">
-        <Header />
-        <div className="dashboard-body">
-          <h2>Bienvenido a VitaNova</h2>
-          <p>Selecciona una sección del menú para comenzar a crear tu CV.</p>
-        </div>
-      </div>
+      <main className="dashboard-main">
+        <h2>Editor de Currículum</h2>
+        <ProfileSection />
+        <ExperienceSection />
+        <SkillsSection />
+      </main>
     </div>
   );
-};
+}
 
-export default Dashboard;
+export default Dashboard;

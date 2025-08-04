@@ -1,64 +1,49 @@
-.dashboard {
+.dashboard-container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.sidebar {
-  width: 250px;
-  background: #002d62; /* Azul oscuro */
-  color: white;
-  padding: 20px;
+.dashboard-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f8f9fc;
+}
+
+.card-section {
+  background: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-section h3 {
+  margin-bottom: 1rem;
+}
+
+.card-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.sidebar h1.logo {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: #ffd700; /* Dorado */
+.card-form input,
+.card-form textarea {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar nav li {
-  margin: 20px 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sidebar nav li:hover {
-  color: #87cefa; /* Azul claro */
-}
-
-.logout-btn {
-  margin-top: auto;
-  background: none;
+.btn-add {
+  padding: 0.5rem 1rem;
   border: none;
+  background: #007bff;
   color: white;
+  border-radius: 5px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
-  background-color: #f4f7fc;
-}
-
-.header {
-  background-color: #ffffff;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.user-info {
-  font-size: 14px;
+.btn-add:hover {
+  background: #0056b3;
 }

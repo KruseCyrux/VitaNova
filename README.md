@@ -111,10 +111,18 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
  3. Blanco
  4. Detalles dorados
 
-### ✅ **Sesión 5 – Registro de usuarios y navegación Login/Register**
+### ✅ **Sesión 5 – Registro de Usuarios y Navegación Login/Register**
 - Validación de contraseñas coincidentes.
 - Navegación entre login y registro desde ambas pantallas.
 - Estilizado general para formularios de autenticación.
+
+### ✅ **Sesión 6 - Dashboard con Cards Integradas**
+- Diseño unificado y moderno, siguiendo el estilo visual de Netlify.
+- Sección de Perfil personal editable.
+- Sección de Experiencia laboral editable y con opción de agregar múltiples entradas.
+- Sección de Habilidades técnicas editable y con opción de agregar múltiples entradas.
+- Sidebar funcional que lista cada sección con íconos, sin redirigir a otras pantallas (todo ocurre en la misma vista).
+- Preparado para añadir más secciones siguiendo la misma estructura (Educación, Idiomas, etc.).
 
 ---
 
