@@ -40,6 +40,7 @@ function Login() {
           required
         />
         <button type="submit">Ingresar</button>
+        <p onClick={() => navigate('/register')} className="auth-link">¿No tienes cuenta? Regístrate</p>
       </form>
     </div>
   );

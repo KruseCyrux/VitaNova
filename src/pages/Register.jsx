@@ -40,6 +40,7 @@ function Register() {
           required
         />
         <button type="submit">Crear cuenta</button>
+        <p onClick={() => navigate('/login')} className="auth-link">¿Ya tienes cuenta? Inicia sesión</p>
       </form>
     </div>
   );

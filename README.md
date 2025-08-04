@@ -111,6 +111,11 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
  3. Blanco
  4. Detalles dorados
 
+### ✅ **Sesión 5 – Registro de usuarios y navegación Login/Register**
+- Validación de contraseñas coincidentes.
+- Navegación entre login y registro desde ambas pantallas.
+- Estilizado general para formularios de autenticación.
+
 ---
 
 ## 🛠️ Tecnologías utilizadas
