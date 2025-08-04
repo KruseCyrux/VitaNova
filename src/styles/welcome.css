@@ -1,0 +1,29 @@
+.welcome-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #002244, #0055aa);
+  height: 100vh;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.welcome-content {
+  max-width: 500px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.welcome-content .logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.welcome-content h1 span {
+  color: #FFD700; /* Dorado para resaltar el nombre */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
