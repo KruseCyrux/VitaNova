@@ -15,7 +15,7 @@ const WelcomeScreen = () => {
           navigate('/login');
         }
       });
-    }, 2500); // 2.5 segundos de bienvenida
+    }, 3500); // 3.5 segundos de bienvenida
 
     return () => clearTimeout(timeout);
   }, [navigate]);
@@ -23,8 +23,8 @@ const WelcomeScreen = () => {
   return (
     <div className="welcome-screen">
       <div className="welcome-content">
-        <img src="/logo.png" alt="VitaNova Logo" className="logo" />
-        <h1>Bienvenido a <span>VitaNova</span></h1>
+     <img src="/Logo (2).png" alt="Logo" style={{ width: '150px', height: 'auto' }} />
+        <h1>Bienvenid@ a <span>VitaNova</span></h1>
         <p>Tu herramienta definitiva para generar currículums profesionales.</p>
       </div>
     </div>
