@@ -100,6 +100,17 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 - Encabezado (`Header`) mostrando al usuario activo (correo).
 - Base del diseño del panel administrativo.
 
+### ✅ **Sesión 4: Pantalla de Bienvenida y Redirección Automática**
+- Se muestra una pantalla de bienvenida al ingresar a /.
+- Luego de 2.5 segundos, el sistema verifica si el usuario está autenticado:
+ 1. Si está logueado, lo redirige a `/dashboard`.
+ 2. Si no está logueado, lo redirige a `/login`.
+- Se incorporó un diseño estilizado usando los colores del logo de VitaNova:
+ 1. Azul oscuro
+ 2. Azul claro
+ 3. Blanco
+ 4. Detalles dorados
+
 ---
 
 ## 🛠️ Tecnologías utilizadas
