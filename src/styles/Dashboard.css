@@ -9,6 +9,11 @@
   background-color: #f8f9fc;
 }
 
+/* Separación para el h2 dentro del dashboard-main */
+.dashboard-main h2 {
+  margin-bottom: 1.5rem; /* Espacio debajo del título */
+}
+
 .card-section {
   background: #fff;
   padding: 1.5rem;

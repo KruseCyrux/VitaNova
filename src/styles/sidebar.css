@@ -1,51 +1,54 @@
 .sidebar {
-  width: 250px;
-  background-color: #1e1e2f;
-  color: #ffffff;
-  padding: 2rem 1rem;
+  width: 220px;           /* o el ancho que uses */
+  height: 100vh;          /* que ocupe toda la altura de la ventana */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  min-height: 100vh;
-  position: sticky;
-  top: 0;
+  padding: 1rem;
+  background-color: #1e293b;
+  color: white;
+  box-sizing: border-box;
 }
 
-.sidebar h2 {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  text-align: center;
+.sidebar nav {
+  flex: 1;               /* que el nav ocupe el espacio disponible */
+  overflow-y: auto;      /* permite scroll vertical si hay overflow */
+  margin-top: 1rem;
 }
 
 .sidebar nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar nav ul li {
+  cursor: pointer;
+  padding: 0.8rem 1rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  cursor: pointer;
+  gap: 0.6rem;
   border-radius: 6px;
-  transition: background 0.3s;
+  transition: background-color 0.2s ease;
 }
 
 .sidebar nav ul li:hover {
-  background-color: #2e2e48;
+  background-color: #374151;
 }
 
 .logout-button {
-  margin-top: 2rem;
-  padding: 0.6rem 1rem;
-  background-color: #ff4d4f;
-  color: white;
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  background-color: #dc2626;
   border: none;
-  border-radius: 5px;
+  color: white;
+  border-radius: 6px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
 }
 
 .logout-button:hover {
-  background-color: #d9363e;
+  background-color: #b91c1c;
 }

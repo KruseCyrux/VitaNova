@@ -1,0 +1,110 @@
+import React, { useState } from "react";
+import "../../styles/card.css";
+
+const CertificationsSection = () => {
+  const [certifications, setCertifications] = useState([
+    {
+      name: "",
+      institution: "",
+      dateObtained: "",
+      dateExpires: "",
+      verificationId: "",
+      specialty: "",
+      certificateLink: "",
+    },
+  ]);
+
+  const addCertification = () => {
+    setCertifications([
+      ...certifications,
+      {
+        name: "",
+        institution: "",
+        dateObtained: "",
+        dateExpires: "",
+        verificationId: "",
+        specialty: "",
+        certificateLink: "",
+      },
+    ]);
+  };
+
+  const updateCertification = (index, field, value) => {
+    const updated = [...certifications];
+    updated[index][field] = value;
+    setCertifications(updated);
+  };
+
+  const removeCertification = (indexToRemove) => {
+    const updated = certifications.filter((_, idx) => idx !== indexToRemove);
+    setCertifications(updated);
+  };
+
+  return (
+    <div className="card-section" id="certifications">
+      <h3>Certificaciones</h3>
+      {certifications.map((cert, i) => (
+        <div className="card" key={i}>
+          <input
+            type="text"
+            placeholder="Nombre de la certificación"
+            value={cert.name}
+            onChange={(e) => updateCertification(i, "name", e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Institución que la otorga"
+            value={cert.institution}
+            onChange={(e) => updateCertification(i, "institution", e.target.value)}
+          />
+          <input
+            type="month"
+            placeholder="Fecha de obtención"
+            value={cert.dateObtained}
+            onChange={(e) => updateCertification(i, "dateObtained", e.target.value)}
+          />
+          <input
+            type="month"
+            placeholder="Fecha de vencimiento (si aplica)"
+            value={cert.dateExpires}
+            onChange={(e) => updateCertification(i, "dateExpires", e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="ID de verificación o URL"
+            value={cert.verificationId}
+            onChange={(e) => updateCertification(i, "verificationId", e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Ámbito o especialidad"
+            value={cert.specialty}
+            onChange={(e) => updateCertification(i, "specialty", e.target.value)}
+          />
+          <input
+            type="url"
+            placeholder="Enlace al certificado digital"
+            value={cert.certificateLink}
+            onChange={(e) => updateCertification(i, "certificateLink", e.target.value)}
+          />
+
+          <div className="button-group">
+            <button
+              className="delete-button"
+              onClick={() => removeCertification(i)}
+            >
+              Eliminar
+            </button>
+            {i === certifications.length - 1 && (
+              <button className="add-button" onClick={addCertification}>
+                Agregar certificación
+              </button>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default CertificationsSection;

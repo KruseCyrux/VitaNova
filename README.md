@@ -124,6 +124,15 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 - Sidebar funcional que lista cada sección con íconos, sin redirigir a otras pantallas (todo ocurre en la misma vista).
 - Preparado para añadir más secciones siguiendo la misma estructura (Educación, Idiomas, etc.).
 
+### ✅ **Sesión 7 – Expansión de Secciones y Mejora de la Interfaz**
+- Se agregaron secciones faltantes.
+- Soporte para agregar múltiples entradas.
+- Botón "Eliminar" para cada card.
+- Ampliación de campos por sección.
+- Se modificó el `initialData.js`.
+- Se modificó el `Sidebar.jsx`.
+- Navegación lateral intuitiva.
+
 ---
 
 ## 🛠️ Tecnologías utilizadas

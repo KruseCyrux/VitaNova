@@ -1,0 +1,74 @@
+.card-section {
+  padding: 1rem;
+}
+
+.card-section h3 {
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+.card {
+  background: #f4f7fa;
+  border-left: 5px solid #0d6efd;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  transition: 0.3s ease;
+}
+
+.card input, .card textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+.add-button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.add-button:hover {
+  background-color: #084298;
+}
+
+.delete-button {
+  background-color: #dc3545; /* rojo Bootstrap */
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.checkbox-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 8px 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.checkbox-inline input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
