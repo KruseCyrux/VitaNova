@@ -39,10 +39,10 @@ function Sidebar() {
           <li onClick={() => scrollToSection('personal-profile')}><FaIdBadge /> Perfil Personal</li>
           <li onClick={() => scrollToSection('profile')}><FaUser /> Perfil Profesional</li>
           <li onClick={() => scrollToSection('experience')}><FaBriefcase /> Experiencia</li>
-          <li onClick={() => scrollToSection('skills')}><FaStar /> Habilidades</li>
           <li onClick={() => scrollToSection('education')}><FaGraduationCap /> Educación</li>
-          <li onClick={() => scrollToSection('languages')}><FaGlobe /> Idiomas</li>
+          <li onClick={() => scrollToSection('skills')}><FaStar /> Habilidades</li>
           <li onClick={() => scrollToSection('certifications')}><FaCertificate /> Certificaciones</li>
+          <li onClick={() => scrollToSection('languages')}><FaGlobe /> Idiomas</li>
           <li onClick={() => scrollToSection('projects')}><FaProjectDiagram /> Proyectos</li>
           <li onClick={() => scrollToSection('references')}><FaAddressBook /> Referencias</li>
           <li onClick={() => scrollToSection('additional-info')}><FaInfoCircle /> Adicional</li>
