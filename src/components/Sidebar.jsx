@@ -49,9 +49,9 @@ function Sidebar() {
           <li onClick={() => scrollToSection('additional-info')}><FaInfoCircle /> Adicional</li>
         </ul>
       </nav>
-      <li onClick={() => document.getElementById("preview")?.scrollIntoView({ behavior: "smooth" })}>
-  <FaRegEye /> Vista Previa
-      </li>
+     <button className="preview-button" onClick={() => scrollTo('preview')}>
+        <FaRegEye /> Vista Previa
+     </button>
       <button className="logout-button" onClick={handleLogout}>
         <FaSignOutAlt /> Cerrar sesión
       </button>

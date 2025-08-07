@@ -133,6 +133,11 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 - Se modificó el `Sidebar.jsx`.
 - Navegación lateral intuitiva.
 
+### ✅ **Sesión 8 – Implementación inicial de la Vista Previa del CV**
+- Botón de Vista Previa integrado visual y funcionalmente en la interfaz.
+- Preview en tiempo real del contenido ingresado por el usuario (estructura ya preparada).
+- Se modificó el `initialData.js`.
+
 ---
 
 ## 🛠️ Tecnologías utilizadas
