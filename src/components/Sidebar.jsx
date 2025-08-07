@@ -11,7 +11,8 @@ import {
   FaProjectDiagram,
   FaAddressBook,
   FaInfoCircle,
-  FaSignOutAlt
+  FaSignOutAlt,
+  FaRegEye
 } from 'react-icons/fa';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig';
@@ -48,6 +49,9 @@ function Sidebar() {
           <li onClick={() => scrollToSection('additional-info')}><FaInfoCircle /> Adicional</li>
         </ul>
       </nav>
+      <li onClick={() => document.getElementById("preview")?.scrollIntoView({ behavior: "smooth" })}>
+  <FaRegEye /> Vista Previa
+      </li>
       <button className="logout-button" onClick={handleLogout}>
         <FaSignOutAlt /> Cerrar sesión
       </button>
