@@ -72,3 +72,18 @@
   height: 16px;
   margin: 0;
 }
+
+.back-to-top-button {
+  background-color: #28a745; /* verde Bootstrap */
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.back-to-top-button:hover {
+  background-color: #218838;
+}

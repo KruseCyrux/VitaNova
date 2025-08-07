@@ -138,6 +138,9 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 - Preview en tiempo real del contenido ingresado por el usuario (estructura ya preparada).
 - Se modificó el `initialData.js`.
 
+### ✅ **Sesión 8.5: Navegación Mejorada con Botón "Volver Arriba"**
+- Se ha añadido un botón verde al final de cada sección del generador de CV que permite al usuario **volver suavemente al inicio de la página** sin necesidad de usar la barra lateral ni hacer scroll manual.
+
 ---
 
 ## 🛠️ Tecnologías utilizadas

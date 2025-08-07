@@ -119,6 +119,13 @@ const EducationSection = () => {
       <button onClick={addEducation} className="add-button">
         Agregar educación
       </button>
+
+      <button
+              className="back-to-top-button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Volver arriba
+            </button>
     </div>
   );
 };

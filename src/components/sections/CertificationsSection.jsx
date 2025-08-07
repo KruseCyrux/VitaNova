@@ -100,6 +100,12 @@ const CertificationsSection = () => {
                 Agregar certificación
               </button>
             )}
+            <button
+              className="back-to-top-button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Volver arriba
+            </button>
           </div>
         </div>
       ))}
