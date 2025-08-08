@@ -9,7 +9,6 @@ import LanguagesSection from "../components/sections/LanguagesSection";
 import CertificationsSection from '../components/sections/CertificationsSection';
 import ProjectsSection from "../components/sections/ProjectsSection";
 import AdditionalInfoSection from '../components/sections/AdditionalInfoSection';
-import PreviewSection from "../components/PreviewSection";
 import '../styles/dashboard.css';
 
 function Dashboard() {
@@ -27,7 +26,6 @@ function Dashboard() {
         <LanguagesSection />
         <ProjectsSection />
         <AdditionalInfoSection />
-        <PreviewSection />
       </main>
     </div>
   );
