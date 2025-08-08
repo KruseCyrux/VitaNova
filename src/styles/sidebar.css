@@ -70,3 +70,21 @@
 .logout-button:hover {
   background-color: #b91c1c;
 }
+
+.preview-button {
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  background-color: #2563eb; /* Azul */
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.preview-button:hover {
+  background-color: #1d4ed8; /* Azul más oscuro */
+}

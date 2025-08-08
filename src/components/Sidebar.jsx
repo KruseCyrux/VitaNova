@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   FaUser,
@@ -16,10 +16,12 @@ import {
 } from 'react-icons/fa';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig';
+import PreviewPopup from './PreviewPopup';
 import '../styles/sidebar.css';
 
 function Sidebar() {
   const navigate = useNavigate();
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
   const handleLogout = () => {
     signOut(auth).then(() => navigate('/login'));
@@ -33,29 +35,40 @@ function Sidebar() {
   };
 
   return (
-    <aside className="sidebar">
-      <h2>VitaNova</h2>
-      <nav>
-        <ul>
-          <li onClick={() => scrollToSection('personal-profile')}><FaIdBadge /> Perfil Personal</li>
-          <li onClick={() => scrollToSection('profile')}><FaUser /> Perfil Profesional</li>
-          <li onClick={() => scrollToSection('experience')}><FaBriefcase /> Experiencia</li>
-          <li onClick={() => scrollToSection('education')}><FaGraduationCap /> Educación</li>
-          <li onClick={() => scrollToSection('skills')}><FaStar /> Habilidades</li>
-          <li onClick={() => scrollToSection('certifications')}><FaCertificate /> Certificaciones</li>
-          <li onClick={() => scrollToSection('languages')}><FaGlobe /> Idiomas</li>
-          <li onClick={() => scrollToSection('projects')}><FaProjectDiagram /> Proyectos</li>
-          <li onClick={() => scrollToSection('references')}><FaAddressBook /> Referencias</li>
-          <li onClick={() => scrollToSection('additional-info')}><FaInfoCircle /> Adicional</li>
-        </ul>
-      </nav>
-     <button className="preview-button" onClick={() => scrollTo('preview')}>
-        <FaRegEye /> Vista Previa
-     </button>
-      <button className="logout-button" onClick={handleLogout}>
-        <FaSignOutAlt /> Cerrar sesión
-      </button>
-    </aside>
+    <>
+      <aside className="sidebar">
+        <h2>VitaNova</h2>
+        <nav>
+          <ul>
+            <li onClick={() => scrollToSection('personal-profile')}><FaIdBadge /> Perfil Personal</li>
+            <li onClick={() => scrollToSection('profile')}><FaUser /> Perfil Profesional</li>
+            <li onClick={() => scrollToSection('experience')}><FaBriefcase /> Experiencia</li>
+            <li onClick={() => scrollToSection('education')}><FaGraduationCap /> Educación</li>
+            <li onClick={() => scrollToSection('skills')}><FaStar /> Habilidades</li>
+            <li onClick={() => scrollToSection('certifications')}><FaCertificate /> Certificaciones</li>
+            <li onClick={() => scrollToSection('languages')}><FaGlobe /> Idiomas</li>
+            <li onClick={() => scrollToSection('projects')}><FaProjectDiagram /> Proyectos</li>
+            <li onClick={() => scrollToSection('references')}><FaAddressBook /> Referencias</li>
+            <li onClick={() => scrollToSection('additional-info')}><FaInfoCircle /> Adicional</li>
+          </ul>
+        </nav>
+
+        <button
+          className="preview-button"
+          onClick={() => setIsPreviewOpen(true)}
+        >
+          <FaRegEye /> Vista Previa
+        </button>
+
+        <button className="logout-button" onClick={handleLogout}>
+          <FaSignOutAlt /> Cerrar sesión
+        </button>
+      </aside>
+
+      {isPreviewOpen && (
+        <PreviewPopup onClose={() => setIsPreviewOpen(false)} />
+      )}
+    </>
   );
 }
 
