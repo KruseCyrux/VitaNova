@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext"; // Agregado
 
 const PersonalInfoSection = () => {
+  const { cvData, updateSection } = useCV(); // Agregado
+
   const [persons, setPersons] = useState([
     {
       fullName: "",
@@ -19,6 +22,12 @@ const PersonalInfoSection = () => {
     const updated = [...persons];
     updated[index][field] = value;
     setPersons(updated);
+
+    // Agregado: actualiza también el contexto
+    updateSection("personalInfo", {
+      ...cvData.personalInfo,
+      [field]: value
+    });
   };
 
   const handleAdd = () => {
@@ -124,11 +133,11 @@ const PersonalInfoSection = () => {
             </button>
           )}
           <button
-              className="back-to-top-button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              Volver arriba
-            </button>
+            className="back-to-top-button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Volver arriba
+          </button>
         </div>
       ))}
     </section>
@@ -136,3 +145,4 @@ const PersonalInfoSection = () => {
 };
 
 export default PersonalInfoSection;
+
