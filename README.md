@@ -146,6 +146,12 @@ VitaNova es una aplicación web moderna diseñada para facilitar la creación, e
 - Estructurada preparada para mostrar en vivo la información del CV desde el estado global.
 - Estilos separados para mantener el diseño limpio y reutilizable.
 
+### ✅ **Sesión 10 - Vista previa en tiempo real del CV**
+- Contexto global para manejo de datos (`CVContext`).
+- Actualización bidireccional: Los formularios de cada sección actualizan el contexto global con los datos ingresados.
+- Sincronización de estado entre formularios y vista previa.
+- Manejo correcto de múltiples entradas por sección.
+
 ---
 
 ## 🛠️ Tecnologías utilizadas

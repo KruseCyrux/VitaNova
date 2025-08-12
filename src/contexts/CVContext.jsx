@@ -6,20 +6,109 @@ export const useCV = () => useContext(CVContext);
 
 export const CVProvider = ({ children }) => {
   const [cvData, setCvData] = useState({
-    personalInfo: {
-      name: "",
-      email: "",
-      phone: "",
-      address: ""
-    },
-    profile: "",
-    experience: [],
-    education: [],
-    skills: [],
-    certifications: [],
-    languages: [],
-    projects: [],
-    additionalInfo: ""
+    personalInfo: [
+      {
+        fullName: "",
+        birthDate: "",
+        address: "",
+        phone: "",
+        email: "",
+        website: "",
+        nationality: "",
+        maritalStatus: ""
+      }
+    ],
+    profile: [
+      {
+        summary: "",
+        goals: "",
+        experienceYears: "",
+        industry: "",
+        values: "",
+        availability: "",
+        interests: "",
+        keywords: "",
+        relocation: "",
+        salary: ""
+      }
+    ],
+    experience: [
+      {
+        company: "",
+        role: "",
+        location: "",
+        startDate: "",
+        endDate: "",
+        achievements: [""],
+        responsibilities: "",
+        tools: "",
+        employmentType: "",
+        reference: ""
+      }
+    ],
+    education: [
+      {
+        nivel: "",
+        titulo: "",
+        institucion: "",
+        ubicacion: "",
+        fechaInicio: "",
+        fechaFin: "",
+        estado: "",
+        promedio: "",
+        proyecto: "",
+        actividades: ""
+      }
+    ],
+    skills: [
+      {
+        name: "",
+        category: "",
+        level: "",
+        experience: "",
+        certificate: ""
+      }
+    ],
+    certifications: [
+      {
+        name: "",
+        institution: "",
+        dateObtained: "",
+        dateExpires: "",
+        verificationId: "",
+        specialty: "",
+        certificateLink: ""
+      }
+    ],
+    languages: [
+      {
+        language: "",
+        usedProfessionally: false,
+        reading: "",
+        writing: "",
+        speaking: "",
+        certification: ""
+      }
+    ],
+    projects: [
+      {
+        title: "",
+        description: "",
+        technologies: "",
+        role: "",
+        results: "",
+        duration: "",
+        link: "",
+        team: "",
+        client: ""
+      }
+    ],
+    additionalInfo: [
+      {
+        type: "",
+        content: ""
+      }
+    ]
   });
 
   const updateSection = (section, value) => {
@@ -45,7 +134,14 @@ export const CVProvider = ({ children }) => {
   };
 
   return (
-    <CVContext.Provider value={{ cvData, updateSection, updateArraySection, addArrayItem }}>
+    <CVContext.Provider
+      value={{
+        cvData,
+        updateSection,
+        updateArraySection,
+        addArrayItem
+      }}
+    >
       {children}
     </CVContext.Provider>
   );

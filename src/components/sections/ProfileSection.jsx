@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext";
 
 const ProfileSection = () => {
-  const [profiles, setProfiles] = useState([
-    {
+  const { cvData, updateSection } = useCV();
+
+  const handleChange = (index, field, value) => {
+    const updated = [...cvData.profile];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("profile", updated);
+  };
+
+  const handleAdd = () => {
+    const newEntry = {
       summary: "",
       goals: "",
       experienceYears: "",
@@ -14,42 +23,19 @@ const ProfileSection = () => {
       keywords: "",
       relocation: "",
       salary: ""
-    }
-  ]);
-
-  const handleChange = (index, field, value) => {
-    const updated = [...profiles];
-    updated[index][field] = value;
-    setProfiles(updated);
-  };
-
-  const handleAdd = () => {
-    setProfiles([
-      ...profiles,
-      {
-        summary: "",
-        goals: "",
-        experienceYears: "",
-        industry: "",
-        values: "",
-        availability: "",
-        interests: "",
-        keywords: "",
-        relocation: "",
-        salary: ""
-      }
-    ]);
+    };
+    updateSection("profile", [...cvData.profile, newEntry]);
   };
 
   const handleRemove = (indexToRemove) => {
-    const updated = profiles.filter((_, idx) => idx !== indexToRemove);
-    setProfiles(updated);
+    const updated = cvData.profile.filter((_, idx) => idx !== indexToRemove);
+    updateSection("profile", updated);
   };
 
   return (
     <section id="profile" className="cv-section">
       <h2>Perfil Profesional</h2>
-      {profiles.map((entry, i) => (
+      {cvData.profile.map((entry, i) => (
         <div className="card" key={i} style={{ marginBottom: "1.5rem" }}>
           <label>Resumen profesional:</label>
           <textarea
@@ -136,17 +122,21 @@ const ProfileSection = () => {
             Eliminar
           </button>
 
-          {i === profiles.length - 1 && (
-            <button className="add-button" onClick={handleAdd} style={{ marginTop: "1rem" }}>
+          {i === cvData.profile.length - 1 && (
+            <button
+              className="add-button"
+              onClick={handleAdd}
+              style={{ marginTop: "1rem" }}
+            >
               Añadir otro perfil
             </button>
           )}
           <button
-              className="back-to-top-button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              Volver arriba
-            </button>
+            className="back-to-top-button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Volver arriba
+          </button>
         </div>
       ))}
     </section>

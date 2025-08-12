@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
-import { useCV } from "../../contexts/CVContext"; // Agregado
+import { useCV } from "../../contexts/CVContext";
 
 const PersonalInfoSection = () => {
-  const { cvData, updateSection } = useCV(); // Agregado
+  const { cvData, updateSection } = useCV();
 
-  const [persons, setPersons] = useState([
-    {
+  const handleChange = (index, field, value) => {
+    const updated = [...cvData.personalInfo];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("personalInfo", updated);
+  };
+
+  const handleAdd = () => {
+    const newEntry = {
       fullName: "",
       birthDate: "",
       address: "",
@@ -14,47 +20,20 @@ const PersonalInfoSection = () => {
       email: "",
       website: "",
       nationality: "",
-      maritalStatus: ""
-    }
-  ]);
-
-  const handleChange = (index, field, value) => {
-    const updated = [...persons];
-    updated[index][field] = value;
-    setPersons(updated);
-
-    // Agregado: actualiza también el contexto
-    updateSection("personalInfo", {
-      ...cvData.personalInfo,
-      [field]: value
-    });
-  };
-
-  const handleAdd = () => {
-    setPersons([
-      ...persons,
-      {
-        fullName: "",
-        birthDate: "",
-        address: "",
-        phone: "",
-        email: "",
-        website: "",
-        nationality: "",
-        maritalStatus: ""
-      }
-    ]);
+      maritalStatus: "",
+    };
+    updateSection("personalInfo", [...cvData.personalInfo, newEntry]);
   };
 
   const handleRemove = (indexToRemove) => {
-    const updated = persons.filter((_, idx) => idx !== indexToRemove);
-    setPersons(updated);
+    const updated = cvData.personalInfo.filter((_, idx) => idx !== indexToRemove);
+    updateSection("personalInfo", updated);
   };
 
   return (
     <section id="personal-info" className="cv-section">
       <h2>Información Personal</h2>
-      {persons.map((entry, i) => (
+      {cvData.personalInfo.map((entry, i) => (
         <div className="card" key={i} style={{ marginBottom: "1.5rem" }}>
           <label>Nombre completo:</label>
           <input
@@ -127,8 +106,12 @@ const PersonalInfoSection = () => {
             Eliminar
           </button>
 
-          {i === persons.length - 1 && (
-            <button className="add-button" onClick={handleAdd} style={{ marginTop: "1rem" }}>
+          {i === cvData.personalInfo.length - 1 && (
+            <button
+              className="add-button"
+              onClick={handleAdd}
+              style={{ marginTop: "1rem" }}
+            >
               Añadir otra información personal
             </button>
           )}
@@ -145,4 +128,3 @@ const PersonalInfoSection = () => {
 };
 
 export default PersonalInfoSection;
-

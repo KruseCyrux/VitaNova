@@ -1,51 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext";
 
 const ExperienceSection = () => {
-  const [experience, setExperience] = useState([
-    {
-      company: "",
-      role: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-      achievements: [""],
-      responsibilities: "",
-      tools: "",
-      employmentType: "",
-      reference: ""
-    }
-  ]);
+  const { cvData, updateSection } = useCV();
 
   const updateExperience = (index, field, value) => {
-    const updated = [...experience];
-    updated[index][field] = value;
-    setExperience(updated);
+    const updated = [...cvData.experience];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("experience", updated);
   };
 
   const updateAchievement = (expIndex, achIndex, value) => {
-    const updated = [...experience];
-    updated[expIndex].achievements[achIndex] = value;
-    setExperience(updated);
+    const updated = [...cvData.experience];
+    const achievements = [...updated[expIndex].achievements];
+    achievements[achIndex] = value;
+    updated[expIndex] = { ...updated[expIndex], achievements };
+    updateSection("experience", updated);
   };
 
   const addAchievement = (expIndex) => {
-    const updated = [...experience];
-    updated[expIndex].achievements.push("");
-    setExperience(updated);
+    const updated = [...cvData.experience];
+    const achievements = [...updated[expIndex].achievements, ""];
+    updated[expIndex] = { ...updated[expIndex], achievements };
+    updateSection("experience", updated);
   };
 
   const removeAchievement = (expIndex, achIndex) => {
-    const updated = [...experience];
-    updated[expIndex].achievements = updated[expIndex].achievements.filter(
-      (_, i) => i !== achIndex
-    );
-    setExperience(updated);
+    const updated = [...cvData.experience];
+    const achievements = updated[expIndex].achievements.filter((_, i) => i !== achIndex);
+    updated[expIndex] = { ...updated[expIndex], achievements };
+    updateSection("experience", updated);
   };
 
   const addExperience = () => {
-    setExperience([
-      ...experience,
+    updateSection("experience", [
+      ...cvData.experience,
       {
         company: "",
         role: "",
@@ -62,14 +52,14 @@ const ExperienceSection = () => {
   };
 
   const removeExperience = (indexToRemove) => {
-    const updated = experience.filter((_, idx) => idx !== indexToRemove);
-    setExperience(updated);
+    const updated = cvData.experience.filter((_, idx) => idx !== indexToRemove);
+    updateSection("experience", updated);
   };
 
   return (
     <div className="card-section" id="experience">
       <h3>Experiencia</h3>
-      {experience.map((exp, i) => (
+      {cvData.experience.map((exp, i) => (
         <div className="card" key={i}>
           <input
             type="text"
@@ -162,19 +152,19 @@ const ExperienceSection = () => {
             Eliminar experiencia
           </button>
 
-          {i === experience.length - 1 && (
+          {i === cvData.experience.length - 1 && (
             <button onClick={addExperience} className="add-button">
               Agregar experiencia
             </button>
           )}
         </div>
       ))}
-            <button
-              className="back-to-top-button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              Volver arriba
-            </button>
+      <button
+        className="back-to-top-button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        Volver arriba
+      </button>
     </div>
   );
 };

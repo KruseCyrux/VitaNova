@@ -18,6 +18,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig';
 import PreviewPopup from './PreviewPopup';
 import '../styles/sidebar.css';
+import { useCV } from '../contexts/CVContext';
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -33,6 +34,8 @@ function Sidebar() {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  const { cvData } = useCV();
 
   return (
     <>
@@ -66,7 +69,7 @@ function Sidebar() {
       </aside>
 
       {isPreviewOpen && (
-        <PreviewPopup onClose={() => setIsPreviewOpen(false)} />
+        <PreviewPopup data={cvData} onClose={() => setIsPreviewOpen(false)} />
       )}
     </>
   );

@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext";
 
 const SkillsSection = () => {
-  const [skills, setSkills] = useState([
-    {
-      name: "",
-      category: "",
-      level: "",
-      experience: "",
-      certificate: "",
-    },
-  ]);
+  const { cvData, updateSection } = useCV();
+
+  const updateSkill = (index, field, value) => {
+    const updated = [...cvData.skills];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("skills", updated);
+  };
 
   const addSkill = () => {
-    setSkills([
-      ...skills,
+    updateSection("skills", [
+      ...cvData.skills,
       {
         name: "",
         category: "",
@@ -25,21 +24,15 @@ const SkillsSection = () => {
     ]);
   };
 
-  const updateSkill = (index, field, value) => {
-    const updated = [...skills];
-    updated[index][field] = value;
-    setSkills(updated);
-  };
-
   const removeSkill = (indexToRemove) => {
-    const updated = skills.filter((_, idx) => idx !== indexToRemove);
-    setSkills(updated);
+    const updated = cvData.skills.filter((_, idx) => idx !== indexToRemove);
+    updateSection("skills", updated);
   };
 
   return (
     <div className="card-section" id="skills">
       <h3>Habilidades</h3>
-      {skills.map((skill, i) => (
+      {cvData.skills.map((skill, i) => (
         <div className="card" key={i}>
           <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
             <div style={{ flex: 1 }}>
@@ -93,12 +86,12 @@ const SkillsSection = () => {
             <button className="delete-button" onClick={() => removeSkill(i)}>
               Eliminar
             </button>
-            {i === skills.length - 1 && (
+            {i === cvData.skills.length - 1 && (
               <button className="add-button" onClick={addSkill}>
                 Agregar habilidad
               </button>
             )}
-             <button
+            <button
               className="back-to-top-button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >

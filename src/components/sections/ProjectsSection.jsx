@@ -1,24 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext";
 
 const ProjectsSection = () => {
-  const [projects, setProjects] = useState([
-    {
-      title: "",
-      description: "",
-      technologies: "",
-      role: "",
-      results: "",
-      duration: "",
-      link: "",
-      team: "",
-      client: "",
-    },
-  ]);
+  const { cvData, updateSection } = useCV();
+
+  const updateProject = (index, field, value) => {
+    const updated = [...cvData.projects];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("projects", updated);
+  };
 
   const addProject = () => {
-    setProjects([
-      ...projects,
+    updateSection("projects", [
+      ...cvData.projects,
       {
         title: "",
         description: "",
@@ -33,21 +28,15 @@ const ProjectsSection = () => {
     ]);
   };
 
-  const updateProject = (index, field, value) => {
-    const updated = [...projects];
-    updated[index][field] = value;
-    setProjects(updated);
-  };
-
   const removeProject = (indexToRemove) => {
-    const updated = projects.filter((_, idx) => idx !== indexToRemove);
-    setProjects(updated);
+    const updated = cvData.projects.filter((_, idx) => idx !== indexToRemove);
+    updateSection("projects", updated);
   };
 
   return (
     <div className="card-section" id="projects">
       <h3>Proyectos</h3>
-      {projects.map((proj, i) => (
+      {cvData.projects.map((proj, i) => (
         <div className="card" key={i}>
           <input
             type="text"
@@ -106,12 +95,12 @@ const ProjectsSection = () => {
             <button className="delete-button" onClick={() => removeProject(i)}>
               Eliminar
             </button>
-            {i === projects.length - 1 && (
+            {i === cvData.projects.length - 1 && (
               <button className="add-button" onClick={addProject}>
                 Agregar proyecto
               </button>
             )}
-             <button
+            <button
               className="back-to-top-button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >

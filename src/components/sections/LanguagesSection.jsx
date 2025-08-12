@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext";
 
 const LanguagesSection = () => {
-  const [languages, setLanguages] = useState([
-    {
-      language: "",
-      usedProfessionally: false,
-      reading: "",
-      writing: "",
-      speaking: "",
-      certification: "",
-    },
-  ]);
+  const { cvData, updateSection } = useCV();
+
+  const updateLanguage = (index, field, value) => {
+    const updated = [...cvData.languages];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("languages", updated);
+  };
+
+  const toggleUsedProfessionally = (index) => {
+    const updated = [...cvData.languages];
+    updated[index] = { 
+      ...updated[index], 
+      usedProfessionally: !updated[index].usedProfessionally 
+    };
+    updateSection("languages", updated);
+  };
 
   const addLanguage = () => {
-    setLanguages([
-      ...languages,
+    updateSection("languages", [
+      ...cvData.languages,
       {
         language: "",
         usedProfessionally: false,
@@ -27,27 +34,15 @@ const LanguagesSection = () => {
     ]);
   };
 
-  const updateLanguage = (index, field, value) => {
-    const updated = [...languages];
-    updated[index][field] = value;
-    setLanguages(updated);
-  };
-
-  const toggleUsedProfessionally = (index) => {
-    const updated = [...languages];
-    updated[index].usedProfessionally = !updated[index].usedProfessionally;
-    setLanguages(updated);
-  };
-
   const removeLanguage = (indexToRemove) => {
-    const updated = languages.filter((_, idx) => idx !== indexToRemove);
-    setLanguages(updated);
+    const updated = cvData.languages.filter((_, idx) => idx !== indexToRemove);
+    updateSection("languages", updated);
   };
 
   return (
     <div className="card-section" id="languages">
       <h3>Idiomas</h3>
-      {languages.map((lang, i) => (
+      {cvData.languages.map((lang, i) => (
         <div className="card" key={i}>
           <input
             type="text"
@@ -95,12 +90,12 @@ const LanguagesSection = () => {
             <button className="delete-button" onClick={() => removeLanguage(i)}>
               Eliminar
             </button>
-            {i === languages.length - 1 && (
+            {i === cvData.languages.length - 1 && (
               <button className="add-button" onClick={addLanguage}>
                 Agregar idioma
               </button>
             )}
-             <button
+            <button
               className="back-to-top-button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >

@@ -1,25 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext";
 
 const EducationSection = () => {
-  const [education, setEducation] = useState([
-    {
-      nivel: "",
-      titulo: "",
-      institucion: "",
-      ubicacion: "",
-      fechaInicio: "",
-      fechaFin: "",
-      estado: "",
-      promedio: "",
-      proyecto: "",
-      actividades: ""
-    }
-  ]);
+  const { cvData, updateSection } = useCV();
 
   const addEducation = () => {
-    setEducation([
-      ...education,
+    updateSection("education", [
+      ...cvData.education,
       {
         nivel: "",
         titulo: "",
@@ -31,25 +19,25 @@ const EducationSection = () => {
         promedio: "",
         proyecto: "",
         actividades: ""
-      }
+      },
     ]);
   };
 
   const updateEducation = (index, field, value) => {
-    const updated = [...education];
-    updated[index][field] = value;
-    setEducation(updated);
+    const updated = [...cvData.education];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("education", updated);
   };
 
   const removeEducation = (indexToRemove) => {
-    const updated = education.filter((_, idx) => idx !== indexToRemove);
-    setEducation(updated);
+    const updated = cvData.education.filter((_, idx) => idx !== indexToRemove);
+    updateSection("education", updated);
   };
 
   return (
     <div className="card-section" id="education">
       <h3>Educación</h3>
-      {education.map((edu, i) => (
+      {cvData.education.map((edu, i) => (
         <div className="card" key={i}>
           <input
             type="text"
@@ -121,11 +109,11 @@ const EducationSection = () => {
       </button>
 
       <button
-              className="back-to-top-button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              Volver arriba
-            </button>
+        className="back-to-top-button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        Volver arriba
+      </button>
     </div>
   );
 };

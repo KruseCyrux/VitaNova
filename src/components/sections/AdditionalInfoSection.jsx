@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext";
 
 const infoTypes = [
   "Premios o reconocimientos",
@@ -11,29 +12,30 @@ const infoTypes = [
 ];
 
 const AdditionalInfoSection = () => {
-  const [additionalInfo, setAdditionalInfo] = useState([
-    { type: "", content: "" },
-  ]);
+  const { cvData, updateSection } = useCV();
 
   const addInfo = () => {
-    setAdditionalInfo([...additionalInfo, { type: "", content: "" }]);
+    updateSection("additionalInfo", [
+      ...cvData.additionalInfo,
+      { type: "", content: "" },
+    ]);
   };
 
   const updateInfo = (index, field, value) => {
-    const updated = [...additionalInfo];
-    updated[index][field] = value;
-    setAdditionalInfo(updated);
+    const updated = [...cvData.additionalInfo];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("additionalInfo", updated);
   };
 
   const removeInfo = (indexToRemove) => {
-    const updated = additionalInfo.filter((_, idx) => idx !== indexToRemove);
-    setAdditionalInfo(updated);
+    const updated = cvData.additionalInfo.filter((_, idx) => idx !== indexToRemove);
+    updateSection("additionalInfo", updated);
   };
 
   return (
     <div className="card-section" id="additional-info">
       <h3>Información Adicional</h3>
-      {additionalInfo.map((info, i) => (
+      {cvData.additionalInfo.map((info, i) => (
         <div className="card" key={i}>
           <select
             value={info.type}
@@ -58,7 +60,7 @@ const AdditionalInfoSection = () => {
             <button className="delete-button" onClick={() => removeInfo(i)}>
               Eliminar
             </button>
-            {i === additionalInfo.length - 1 && (
+            {i === cvData.additionalInfo.length - 1 && (
               <button className="add-button" onClick={addInfo}>
                 Agregar información
               </button>

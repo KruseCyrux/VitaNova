@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/card.css";
+import { useCV } from "../../contexts/CVContext";
 
 const CertificationsSection = () => {
-  const [certifications, setCertifications] = useState([
-    {
-      name: "",
-      institution: "",
-      dateObtained: "",
-      dateExpires: "",
-      verificationId: "",
-      specialty: "",
-      certificateLink: "",
-    },
-  ]);
+  const { cvData, updateSection } = useCV();
 
   const addCertification = () => {
-    setCertifications([
-      ...certifications,
+    updateSection("certifications", [
+      ...cvData.certifications,
       {
         name: "",
         institution: "",
@@ -30,20 +21,20 @@ const CertificationsSection = () => {
   };
 
   const updateCertification = (index, field, value) => {
-    const updated = [...certifications];
-    updated[index][field] = value;
-    setCertifications(updated);
+    const updated = [...cvData.certifications];
+    updated[index] = { ...updated[index], [field]: value };
+    updateSection("certifications", updated);
   };
 
   const removeCertification = (indexToRemove) => {
-    const updated = certifications.filter((_, idx) => idx !== indexToRemove);
-    setCertifications(updated);
+    const updated = cvData.certifications.filter((_, idx) => idx !== indexToRemove);
+    updateSection("certifications", updated);
   };
 
   return (
     <div className="card-section" id="certifications">
       <h3>Certificaciones</h3>
-      {certifications.map((cert, i) => (
+      {cvData.certifications.map((cert, i) => (
         <div className="card" key={i}>
           <input
             type="text"
@@ -95,7 +86,7 @@ const CertificationsSection = () => {
             >
               Eliminar
             </button>
-            {i === certifications.length - 1 && (
+            {i === cvData.certifications.length - 1 && (
               <button className="add-button" onClick={addCertification}>
                 Agregar certificación
               </button>

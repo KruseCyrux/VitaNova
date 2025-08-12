@@ -1,51 +1,138 @@
-.preview-container {
-  padding: 2rem;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  margin-top: 2rem;
-}
-
-.preview-box {
-  border: 2px dashed #ccc;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 8px;
-}
-
+/* Fondo oscuro semitransparente */
 .preview-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(15, 23, 42, 0.85); /* azul muy oscuro con opacidad */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  z-index: 3000;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
 }
 
+/* Contenedor principal */
 .preview-container {
-  background: white;
-  width: 80%;
-  max-width: 1000px;
-  border-radius: 8px;
-  padding: 1.5rem;
+  background: #fff;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
   position: relative;
-  max-height: 90%;
+  max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b; /* gris azulado */
 }
 
-.close-preview {
+/* Botón cerrar */
+.close-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
+  top: 16px;
+  right: 20px;
+  background: transparent;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #64748b;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+.close-btn:hover {
+  color: #ef4444; /* rojo vibrante */
 }
 
-.preview-content {
-  margin-top: 1rem;
+/* Título general */
+.preview-container > h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #334155;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 0.5rem;
+}
+
+/* Cada sección */
+.preview-container section {
+  margin-bottom: 2rem;
+  border-left: 4px solid #3b82f6; /* azul brillante */
+  padding-left: 1rem;
+}
+
+/* Títulos de sección */
+.preview-container section h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #1e40af;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 0.3rem;
+}
+
+/* Listas */
+.preview-container section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #334155;
+}
+
+.preview-container section ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Negritas dentro de listas */
+.preview-container section ul li strong {
+  color: #1e3a8a;
+}
+
+/* Párrafos normales */
+.preview-container section p {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0.3rem;
+}
+
+/* Para sublistas dentro de logros o detalles */
+.preview-container section ul ul {
+  list-style-type: circle;
+  margin-top: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Scrollbar estilizado para contenedor */
+.preview-container::-webkit-scrollbar {
+  width: 8px;
+}
+.preview-container::-webkit-scrollbar-thumb {
+  background-color: #3b82f6;
+  border-radius: 20px;
+}
+.preview-container::-webkit-scrollbar-track {
+  background-color: #e0e7ff;
+  border-radius: 20px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  .preview-container {
+    width: 100%;
+    padding: 1.5rem 1.5rem;
+  }
+  .preview-container > h2 {
+    font-size: 1.6rem;
+  }
+  .preview-container section h3 {
+    font-size: 1.2rem;
+  }
 }
