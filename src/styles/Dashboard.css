@@ -6,7 +6,7 @@
 .dashboard-main {
   flex: 1;
   padding: 2rem;
-  background-color: #f8f9fc;
+  background-color: #f7f5f5;
 }
 
 /* Separación para el h2 dentro del dashboard-main */
@@ -52,3 +52,50 @@
 .btn-add:hover {
   background: #0056b3;
 }
+
+/* 🎨 Transiciones suaves */
+.dashboard-container,
+.dashboard-main,
+.dashboard-main h2 {
+  transition: all 0.4s ease-in-out;
+}
+
+/* ✨ Animación de entrada */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🎨 Transiciones suaves de estilo */
+.dashboard-container,
+.dashboard-main,
+.dashboard-main h2 {
+  transition: all 0.4s ease-in-out;
+}
+
+/* Pequeño efecto de entrada */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

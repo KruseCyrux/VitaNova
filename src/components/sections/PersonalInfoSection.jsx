@@ -33,6 +33,7 @@ const PersonalInfoSection = () => {
   return (
     <section id="personal-info" className="cv-section">
       <h2>Información Personal</h2>
+
       {cvData.personalInfo.map((entry, i) => (
         <div className="card" key={i} style={{ marginBottom: "1.5rem" }}>
           <label>Nombre completo:</label>
@@ -115,6 +116,7 @@ const PersonalInfoSection = () => {
               Añadir otra información personal
             </button>
           )}
+
           <button
             className="back-to-top-button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

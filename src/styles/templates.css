@@ -1,0 +1,32 @@
+.template {
+  padding: 2rem;
+  color: #222;
+}
+
+.template h1 {
+  margin-bottom: 0.3rem;
+}
+
+.template section {
+  margin-top: 1.5rem;
+}
+
+.moderna {
+  display: flex;
+}
+
+.moderna .left-column {
+  width: 30%;
+  color: white;
+  padding: 1.5rem;
+}
+
+.moderna .right-column {
+  width: 70%;
+  padding: 1.5rem;
+}
+
+.clasica .classic-header {
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}

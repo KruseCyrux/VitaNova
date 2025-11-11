@@ -136,3 +136,76 @@
     font-size: 1.2rem;
   }
 }
+
+.preview-photo-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.preview-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  border: 3px solid #1e40af;
+}
+
+.preview-photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.preview-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de la foto en la vista previa */
+.preview-photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Imagen de perfil */
+.preview-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #475569;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.preview-photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.preview-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #475569;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.preview-container {
+  transition: all 0.4s ease-in-out;
+}
+
+.preview-overlay {
+  transition: background-color 0.3s ease;
+}
+

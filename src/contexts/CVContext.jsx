@@ -5,6 +5,7 @@ const CVContext = createContext();
 export const useCV = () => useContext(CVContext);
 
 export const CVProvider = ({ children }) => {
+  // 🧠 Datos del currículum
   const [cvData, setCvData] = useState({
     personalInfo: [
       {
@@ -15,8 +16,8 @@ export const CVProvider = ({ children }) => {
         email: "",
         website: "",
         nationality: "",
-        maritalStatus: ""
-      }
+        maritalStatus: "",
+      },
     ],
     profile: [
       {
@@ -29,8 +30,8 @@ export const CVProvider = ({ children }) => {
         interests: "",
         keywords: "",
         relocation: "",
-        salary: ""
-      }
+        salary: "",
+      },
     ],
     experience: [
       {
@@ -43,8 +44,8 @@ export const CVProvider = ({ children }) => {
         responsibilities: "",
         tools: "",
         employmentType: "",
-        reference: ""
-      }
+        reference: "",
+      },
     ],
     education: [
       {
@@ -57,8 +58,8 @@ export const CVProvider = ({ children }) => {
         estado: "",
         promedio: "",
         proyecto: "",
-        actividades: ""
-      }
+        actividades: "",
+      },
     ],
     skills: [
       {
@@ -66,8 +67,8 @@ export const CVProvider = ({ children }) => {
         category: "",
         level: "",
         experience: "",
-        certificate: ""
-      }
+        certificate: "",
+      },
     ],
     certifications: [
       {
@@ -77,8 +78,8 @@ export const CVProvider = ({ children }) => {
         dateExpires: "",
         verificationId: "",
         specialty: "",
-        certificateLink: ""
-      }
+        certificateLink: "",
+      },
     ],
     languages: [
       {
@@ -87,8 +88,8 @@ export const CVProvider = ({ children }) => {
         reading: "",
         writing: "",
         speaking: "",
-        certification: ""
-      }
+        certification: "",
+      },
     ],
     projects: [
       {
@@ -100,26 +101,35 @@ export const CVProvider = ({ children }) => {
         duration: "",
         link: "",
         team: "",
-        client: ""
-      }
+        client: "",
+      },
     ],
     additionalInfo: [
       {
         type: "",
-        content: ""
-      }
-    ]
+        content: "",
+      },
+    ],
   });
 
+  // 🎨 Configuración de estilos (plantillas)
+  const [styleConfig, setStyleConfig] = useState({
+    template: "Clásica",
+    color: "#2e3a59",
+    font: "Roboto",
+    latexTheme: "moderncv",
+  });
+
+  // 🔧 Funciones para actualizar datos
   const updateSection = (section, value) => {
-    setCvData(prev => ({
+    setCvData((prev) => ({
       ...prev,
-      [section]: value
+      [section]: value,
     }));
   };
 
   const updateArraySection = (section, index, field, value) => {
-    setCvData(prev => {
+    setCvData((prev) => {
       const updated = [...prev[section]];
       updated[index] = { ...updated[index], [field]: value };
       return { ...prev, [section]: updated };
@@ -127,19 +137,22 @@ export const CVProvider = ({ children }) => {
   };
 
   const addArrayItem = (section, newItem) => {
-    setCvData(prev => ({
+    setCvData((prev) => ({
       ...prev,
-      [section]: [...prev[section], newItem]
+      [section]: [...prev[section], newItem],
     }));
   };
 
+  // 🚀 Proveedor del contexto
   return (
     <CVContext.Provider
       value={{
         cvData,
         updateSection,
         updateArraySection,
-        addArrayItem
+        addArrayItem,
+        styleConfig,
+        setStyleConfig, // ✅ permite cambiar estilos desde Sidebar o Dashboard
       }}
     >
       {children}
