@@ -1,0 +1,20 @@
+{
+  "functions": {
+    "runtime": "nodejs20",
+    "source": "functions",
+    "build": {
+      "docker": {
+        "image": "ghcr.io/xu-cheng/texlive-full:latest"
+      }
+    },
+    "codebase": "default",
+    "disallowLegacyRuntimeConfig": true,
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "*.local"
+    ]
+  }
+}

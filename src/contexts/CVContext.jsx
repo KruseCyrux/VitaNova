@@ -110,6 +110,28 @@ export const CVProvider = ({ children }) => {
         content: "",
       },
     ],
+
+    // 🩺 Nueva sección médica
+    medical: {
+      bloodType: "",
+      allergies: "",
+      chronicDiseases: "",
+      medications: "",
+      healthStatus: "",
+      emergencyContact: {
+        name: "",
+        relation: "",
+        phone: "",
+      },
+      insurance: {
+        company: "",
+        policyNumber: "",
+        coverage: "",
+      },
+      organDonor: false,
+      lastCheckup: "",
+      notes: "",
+    },
   });
 
   // 🎨 Configuración de estilos (plantillas)

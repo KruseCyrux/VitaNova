@@ -15,7 +15,7 @@ const WelcomeScreen = () => {
           navigate('/login');
         }
       });
-    }, 3500); // 3.5 segundos de bienvenida
+    }, 5500); // 3.5 segundos de bienvenida
 
     return () => clearTimeout(timeout);
   }, [navigate]);

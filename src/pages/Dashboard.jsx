@@ -8,6 +8,7 @@ import SkillsSection from "../components/sections/SkillsSection";
 import LanguagesSection from "../components/sections/LanguagesSection";
 import CertificationsSection from "../components/sections/CertificationsSection";
 import ProjectsSection from "../components/sections/ProjectsSection";
+import MedicalSection from "../components/sections/MedicalSection"
 import AdditionalInfoSection from "../components/sections/AdditionalInfoSection";
 import PhotoUploadSection from "../components/sections/PhotoUploadSection";
 import "../styles/dashboard.css";
@@ -42,6 +43,8 @@ function Dashboard() {
         return <ProjectsSection />;
       case "additional-info":
         return <AdditionalInfoSection />;
+      case "medical":
+        return <MedicalSection />;
       default:
         return <PersonalInfoSection />;
     }

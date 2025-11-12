@@ -4,7 +4,6 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import Minimalista from "./templates/Minimalista";
 import Moderna from "./templates/Moderna";
-import Elegante from "./templates/Elegante";
 import "../styles/preview.css";
 
 function PreviewPopup({ onClose }) {
@@ -50,7 +49,7 @@ function PreviewPopup({ onClose }) {
     <div
       className="preview-overlay"
       style={{
-        backgroundColor: "#f7f9"
+        backgroundColor: "#f7f9",
         fontFamily: styleConfig.font || "Roboto, sans-serif",
         color: styleConfig.color || "#2e3a59",
       }}

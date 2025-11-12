@@ -16,15 +16,14 @@ import {
   FaPhoneAlt,
   FaPalette,
   FaChevronDown,
+  FaHeartbeat, // 🩺 Nuevo ícono para la sección médica
 } from "react-icons/fa";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import PreviewPopup from "./PreviewPopup";
 import "../styles/sidebar.css";
 import { useCV } from "../contexts/CVContext";
-// 👇 justo después de tus imports
 import { Clasica, Moderna, Minimalista } from "./templates";
-
 
 function Sidebar({ setActiveSection }) {
   const navigate = useNavigate();
@@ -36,7 +35,6 @@ function Sidebar({ setActiveSection }) {
     signOut(auth).then(() => navigate("/login"));
   };
 
-  // 🔹 Cambiar de plantilla y aplicar estilo
   const handleTemplateSelect = (template) => {
     let newConfig = { ...styleConfig };
 
@@ -71,19 +69,18 @@ function Sidebar({ setActiveSection }) {
     alert(`✅ Plantilla "${template}" aplicada con éxito.`);
   };
 
-  // 🔹 Función para mostrar la plantilla actual
-const renderSelectedTemplate = () => {
-  switch (styleConfig.template) {
-    case "Clásica":
-      return <Clasica cvData={cvData} styleConfig={styleConfig} />;
-    case "Moderna":
-      return <Moderna cvData={cvData} styleConfig={styleConfig} />;
-    case "Minimalista":
-      return <Minimalista cvData={cvData} styleConfig={styleConfig} />;
-    default:
-      return null;
-  }
-};
+  const renderSelectedTemplate = () => {
+    switch (styleConfig.template) {
+      case "Clásica":
+        return <Clasica cvData={cvData} styleConfig={styleConfig} />;
+      case "Moderna":
+        return <Moderna cvData={cvData} styleConfig={styleConfig} />;
+      case "Minimalista":
+        return <Minimalista cvData={cvData} styleConfig={styleConfig} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
@@ -119,6 +116,12 @@ const renderSelectedTemplate = () => {
             <li onClick={() => setActiveSection("references")}>
               <FaAddressBook /> Referencias
             </li>
+
+            {/* 🩺 Nueva sección médica */}
+            <li onClick={() => setActiveSection("medical")}>
+              <FaHeartbeat /> Información Médica
+            </li>
+
             <li onClick={() => setActiveSection("additional-info")}>
               <FaInfoCircle /> Adicional
             </li>
@@ -132,9 +135,7 @@ const renderSelectedTemplate = () => {
             onClick={() => setShowTemplates(!showTemplates)}
           >
             <FaPalette /> Plantillas{" "}
-            <FaChevronDown
-              className={`arrow ${showTemplates ? "open" : ""}`}
-            />
+            <FaChevronDown className={`arrow ${showTemplates ? "open" : ""}`} />
           </button>
 
           {showTemplates && (
@@ -148,17 +149,11 @@ const renderSelectedTemplate = () => {
           )}
         </div>
 
-        <button
-          className="contact-button"
-          onClick={() => navigate("/contacto")}
-        >
+        <button className="contact-button" onClick={() => navigate("/contacto")}>
           <FaPhoneAlt /> Contacto
         </button>
 
-        <button
-          className="preview-button"
-          onClick={() => setIsPreviewOpen(true)}
-        >
+        <button className="preview-button" onClick={() => setIsPreviewOpen(true)}>
           <FaRegEye /> Vista Previa
         </button>
 
@@ -169,11 +164,10 @@ const renderSelectedTemplate = () => {
 
       {/* 🔹 Vista previa emergente */}
       {isPreviewOpen && (
-  <PreviewPopup onClose={() => setIsPreviewOpen(false)}>
-    {renderSelectedTemplate()}
-  </PreviewPopup>
-)}
-
+        <PreviewPopup onClose={() => setIsPreviewOpen(false)}>
+          {renderSelectedTemplate()}
+        </PreviewPopup>
+      )}
     </>
   );
 }

@@ -113,7 +113,9 @@ function Minimalista({ cvData, styleConfig }) {
         {cvData.certifications?.length > 0 ? (
           cvData.certifications.map((cert, i) => (
             <div key={i}>
-              <p>{cert.name} – {cert.year}</p>
+              <p>
+                {cert.name} – {cert.year}
+              </p>
             </div>
           ))
         ) : (
@@ -169,6 +171,38 @@ function Minimalista({ cvData, styleConfig }) {
           ))
         ) : (
           <p>Sin referencias agregadas</p>
+        )}
+      </section>
+
+      {/* 🩺 Sección Médica */}
+      <section style={{ marginBottom: "1.5rem" }}>
+        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
+          Información Médica
+        </h2>
+        {cvData.medical?.length > 0 ? (
+          cvData.medical.map((med, i) => (
+            <div key={i} style={{ marginBottom: "0.8rem" }}>
+              <p>
+                <strong>Tipo de sangre:</strong> {med.bloodType || "—"}
+              </p>
+              <p>
+                <strong>Alergias:</strong> {med.allergies || "Ninguna"}
+              </p>
+              <p>
+                <strong>Condiciones médicas:</strong>{" "}
+                {med.conditions || "Ninguna"}
+              </p>
+              <p>
+                <strong>Medicamentos:</strong> {med.medications || "Ninguno"}
+              </p>
+              <p>
+                <strong>Contacto de emergencia:</strong>{" "}
+                {med.emergencyContact || "No registrado"}
+              </p>
+            </div>
+          ))
+        ) : (
+          <p>Sin información médica agregada</p>
         )}
       </section>
 
