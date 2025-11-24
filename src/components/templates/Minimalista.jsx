@@ -1,224 +1,195 @@
 import React from "react";
+import "../../styles/templates/Minimalista.css";
 
 function Minimalista({ cvData, styleConfig }) {
-  const personalInfo = cvData.personalInfo?.[0] || {};
-  const profile = cvData.profile?.[0] || {};
+  const personal = cvData.personalInfo?.[0] || {};
+
+  const renderText = (data) => {
+    if (!data) return "";
+    if (typeof data === "string") return data;
+    if (typeof data === "object")
+      return Object.values(data).filter(Boolean).join(" • ");
+    return "";
+  };
 
   return (
     <div
+      className="minimalista-template"
       style={{
-        backgroundColor: "#f9fafb",
-        color: styleConfig.color || "#333",
         fontFamily: styleConfig.font || "Inter, sans-serif",
-        padding: "40px",
-        maxWidth: "800px",
-        margin: "0 auto",
-        lineHeight: "1.6",
+        color: "#333",
+        backgroundColor: "#fff",
       }}
     >
-      {/* 🔹 Encabezado */}
-      <header style={{ textAlign: "center", marginBottom: "2rem" }}>
+      {/* Sidebar */}
+      <aside
+        className="minimalista-sidebar"
+        style={{
+          backgroundColor: styleConfig.color || "#1a1a1a",
+          color: "#fff",
+        }}
+      >
         {cvData.photo && (
           <img
             src={cvData.photo}
             alt="Foto de perfil"
-            style={{
-              width: "120px",
-              height: "120px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              marginBottom: "1rem",
-            }}
+            className="minimalista-photo"
           />
         )}
-        <h1 style={{ fontSize: "2rem", marginBottom: "0.3rem" }}>
-          {personalInfo.fullName || "Tu Nombre Completo"}
-        </h1>
-        <p>{personalInfo.email || "correo@ejemplo.com"}</p>
-        <p>{personalInfo.phone || "Teléfono"}</p>
-        <p>{personalInfo.address || "Dirección"}</p>
-      </header>
 
-      {/* 🔹 Perfil Profesional */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Perfil Profesional
-        </h2>
-        <p>{profile.summary || "Resumen profesional"}</p>
-        <p>{profile.goals || "Objetivos profesionales"}</p>
-      </section>
+        <h2>{personal.fullName || "Tu Nombre"}</h2>
+        <p>{personal.profession || "Profesión"}</p>
+        <hr />
+        <p>{personal.email}</p>
+        <p>{personal.phone}</p>
+        <p>{personal.city}</p>
+      </aside>
 
-      {/* 🔹 Experiencia */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Experiencia
-        </h2>
-        {cvData.experience?.length > 0 ? (
-          cvData.experience.map((exp, i) => (
-            <div key={i} style={{ marginBottom: "1rem" }}>
-              <h3 style={{ color: styleConfig.color }}>{exp.role}</h3>
-              <p>
-                {exp.company} | {exp.startDate} – {exp.endDate || "Actual"}
-              </p>
-              <p>{exp.responsibilities}</p>
-            </div>
-          ))
-        ) : (
-          <p>Sin experiencia agregada</p>
+      {/* Contenido principal */}
+      <main className="minimalista-content">
+
+        {/* Perfil Profesional */}
+        {cvData.profile && (
+          <section>
+            <h3>Perfil Profesional</h3>
+            <p>{renderText(cvData.profile)}</p>
+          </section>
         )}
-      </section>
 
-      {/* 🔹 Educación */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Educación
-        </h2>
-        {cvData.education?.length > 0 ? (
-          cvData.education.map((edu, i) => (
-            <div key={i} style={{ marginBottom: "1rem" }}>
-              <h3 style={{ color: styleConfig.color }}>{edu.titulo}</h3>
-              <p>
-                {edu.institucion} | {edu.fechaInicio} – {edu.fechaFin}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>Sin educación agregada</p>
-        )}
-      </section>
-
-      {/* 🔹 Habilidades */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Habilidades
-        </h2>
-        {cvData.skills?.length > 0 ? (
-          <ul>
-            {cvData.skills.map((skill, i) => (
-              <li key={i}>
-                {skill.name} – {skill.level}
-              </li>
+        {/* Experiencia */}
+        {cvData.experience?.length > 0 && (
+          <section>
+            <h3>Experiencia</h3>
+            {cvData.experience.map((exp, i) => (
+              <div key={i} className="item">
+                <strong>{exp.title}</strong> — {exp.company} ({exp.start} - {exp.end})
+                <p>{exp.description}</p>
+              </div>
             ))}
-          </ul>
-        ) : (
-          <p>Sin habilidades agregadas</p>
+          </section>
         )}
-      </section>
 
-      {/* 🔹 Certificaciones */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Certificaciones
-        </h2>
-        {cvData.certifications?.length > 0 ? (
-          cvData.certifications.map((cert, i) => (
-            <div key={i}>
-              <p>
-                {cert.name} – {cert.year}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>Sin certificaciones agregadas</p>
+        {/* Certificaciones */}
+        <section style={{ marginBottom: "1.5rem" }}>
+          <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
+            Certificaciones
+          </h2>
+          {cvData.certifications?.length > 0 ? (
+            cvData.certifications.map((cert, i) => (
+              <div key={i}>
+                <p>
+                  {cert.name} – {cert.year}
+                </p>
+              </div>
+            ))
+          ) : (
+            <p>Sin certificaciones agregadas</p>
+          )}
+        </section>
+
+        {/* Educación */}
+        {cvData.education?.length > 0 && (
+          <section>
+            <h3>Educación</h3>
+            {cvData.education.map((edu, i) => (
+              <div key={i} className="item">
+                <strong>{edu.degree}</strong> — {edu.institution} ({edu.year})
+              </div>
+            ))}
+          </section>
         )}
-      </section>
 
-      {/* 🔹 Idiomas */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Idiomas
-        </h2>
-        {cvData.languages?.length > 0 ? (
-          cvData.languages.map((lang, i) => (
-            <p key={i}>
-              {lang.name} – {lang.level}
+        {/* Habilidades */}
+        {cvData.skills?.length > 0 && (
+          <section>
+            <h3>Habilidades</h3>
+            <ul className="skills-list">
+              {cvData.skills.map((skill, i) => (
+                <li key={i}>{renderText(skill.name || skill)}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Idiomas */}
+        {cvData.languages?.length > 0 && (
+          <section>
+            <h3>Idiomas</h3>
+            <ul>
+              {cvData.languages.map((lang, i) => (
+                <li key={i}>
+                  {lang.language} — {lang.level}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Información Médica */}
+        <section style={{ marginBottom: "1.5rem" }}>
+          <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
+            Información Médica
+          </h2>
+
+          <div>
+            <p><strong>Tipo de sangre:</strong> {cvData.medical?.bloodType || "—"}</p>
+            <p><strong>Alergias:</strong> {cvData.medical?.allergies || "Ninguna"}</p>
+            <p><strong>Enfermedades crónicas:</strong> {cvData.medical?.chronicDiseases || "Ninguna"}</p>
+            <p><strong>Medicamentos:</strong> {cvData.medical?.medications || "Ninguno"}</p>
+            <p><strong>Estado de salud:</strong> {cvData.medical?.healthStatus || "No especificado"}</p>
+            <p>
+              <strong>Contacto de emergencia:</strong>{" "}
+              {renderText(cvData.medical?.emergencyContact) || "No registrado"}
             </p>
-          ))
-        ) : (
-          <p>Sin idiomas agregados</p>
-        )}
-      </section>
+          </div>
+        </section>
 
-      {/* 🔹 Proyectos */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Proyectos
-        </h2>
-        {cvData.projects?.length > 0 ? (
-          cvData.projects.map((proj, i) => (
-            <div key={i}>
-              <h3 style={{ color: styleConfig.color }}>{proj.name}</h3>
-              <p>{proj.description}</p>
-            </div>
-          ))
-        ) : (
-          <p>Sin proyectos agregados</p>
-        )}
-      </section>
+        {/* Alergias detalladas */}
+        <section>
+          <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
+            Alergias Detalladas
+          </h2>
+          {cvData.alergias?.length > 0 ? (
+            cvData.alergias.map((a, i) => (
+              <div key={i} className="item">
+                <p><strong>Alergia:</strong> {a.nombreAlergia}</p>
+                <p><strong>Tipo:</strong> {a.tipo}</p>
+                <p><strong>Gravedad:</strong> {a.gravedad}</p>
+                <p><strong>Descripción:</strong> {a.descripcion}</p>
+              </div>
+            ))
+          ) : (
+            <p>No se han agregado alergias</p>
+          )}
+        </section>
 
-      {/* 🔹 Referencias */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Referencias
-        </h2>
-        {cvData.references?.length > 0 ? (
-          cvData.references.map((ref, i) => (
-            <div key={i}>
-              <p>
-                {ref.name} – {ref.contact}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>Sin referencias agregadas</p>
-        )}
-      </section>
+        {/* Información Adicional */}
+        <section>
+          <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
+            Información Adicional
+          </h2>
+          {cvData.additionalInfo?.length > 0 ? (
+            cvData.additionalInfo.map((info, i) => (
+              <p key={i}>{info.detail}</p>
+            ))
+          ) : (
+            <p>Sin información adicional</p>
+          )}
+        </section>
 
-      {/* 🩺 Sección Médica */}
-      <section style={{ marginBottom: "1.5rem" }}>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Información Médica
-        </h2>
-        {cvData.medical?.length > 0 ? (
-          cvData.medical.map((med, i) => (
-            <div key={i} style={{ marginBottom: "0.8rem" }}>
-              <p>
-                <strong>Tipo de sangre:</strong> {med.bloodType || "—"}
-              </p>
-              <p>
-                <strong>Alergias:</strong> {med.allergies || "Ninguna"}
-              </p>
-              <p>
-                <strong>Condiciones médicas:</strong>{" "}
-                {med.conditions || "Ninguna"}
-              </p>
-              <p>
-                <strong>Medicamentos:</strong> {med.medications || "Ninguno"}
-              </p>
-              <p>
-                <strong>Contacto de emergencia:</strong>{" "}
-                {med.emergencyContact || "No registrado"}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>Sin información médica agregada</p>
+        {/* Proyectos */}
+        {cvData.projects?.length > 0 && (
+          <section>
+            <h3>Proyectos</h3>
+            {cvData.projects.map((proj, i) => (
+              <div key={i} className="item">
+                <strong>{proj.name}</strong> — {proj.description}
+              </div>
+            ))}
+          </section>
         )}
-      </section>
 
-      {/* 🔹 Información Adicional */}
-      <section>
-        <h2 style={{ borderBottom: `2px solid ${styleConfig.color}` }}>
-          Información Adicional
-        </h2>
-        {cvData.additionalInfo?.length > 0 ? (
-          cvData.additionalInfo.map((info, i) => (
-            <p key={i}>{info.detail}</p>
-          ))
-        ) : (
-          <p>Sin información adicional</p>
-        )}
-      </section>
+      </main>
     </div>
   );
 }

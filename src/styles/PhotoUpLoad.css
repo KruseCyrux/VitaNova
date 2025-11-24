@@ -1,5 +1,17 @@
 .photo-upload-section {
-  margin-top: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.photo-upload-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2e3a59;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -11,36 +23,43 @@
 }
 
 .uploaded-photo {
-  width: 150px;          /* tamaño fijo */
-  height: 150px;
-  object-fit: cover;     /* mantiene proporciones */
-  border-radius: 50%;    /* hace la imagen circular */
-  border: 2px solid #475569; /* borde gris azulado */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2e3a59;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.uploaded-photo:hover {
+  transform: scale(1.05);
 }
 
 .photo-placeholder {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  background-color: #334155; /* gris oscuro */
+  background: linear-gradient(135deg, #d3dce6, #f0f2f5);
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: #94a3b8;
-  font-size: 0.9rem;
+  justify-content: center;
+  color: #555;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .photo-input {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
   cursor: pointer;
+  border: none;
+  background: #2e3a59;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
   transition: background-color 0.3s ease;
 }
 
 .photo-input:hover {
-  background-color: #1e40af;
+  background-color: #1e2742;
 }

@@ -4,8 +4,9 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import Minimalista from "./templates/Minimalista";
 import Moderna from "./templates/Moderna";
-import "../styles/preview.css";
+import Clasica from "./templates/Clasica"; // ✅ corregido
 
+import "../styles/preview.css";
 function PreviewPopup({ onClose }) {
   const { cvData, styleConfig } = useCV();
 
@@ -38,8 +39,8 @@ function PreviewPopup({ onClose }) {
     switch (styleConfig.template) {
       case "Moderna":
         return <Moderna cvData={cvData} styleConfig={styleConfig} />;
-      case "Elegante":
-        return <Elegante cvData={cvData} styleConfig={styleConfig} />;
+      case "Clásica":
+        return <Clasica cvData={cvData} styleConfig={styleConfig} />;
       default:
         return <Minimalista cvData={cvData} styleConfig={styleConfig} />;
     }
@@ -50,12 +51,14 @@ function PreviewPopup({ onClose }) {
       className="preview-overlay"
       style={{
         backgroundColor: "#f7f9",
+
+        backgroundColor: "rgba(255, 255, 255, 0.6)",
         fontFamily: styleConfig.font || "Roboto, sans-serif",
         color: styleConfig.color || "#2e3a59",
       }}
     >
       <div className="preview-container">
-        {/* 🔹 ENCABEZADO: Botones visibles */}
+        {/* 🔹 ENCABEZADO */}
         <div
           className="preview-header"
           style={{
@@ -95,9 +98,10 @@ function PreviewPopup({ onClose }) {
           </button>
         </div>
 
-        {/* 🔹 Aquí se renderiza la plantilla seleccionada */}
+        {/* 🔹 Contenido del CV */}
         <div id="cv-preview-content" className="preview-content">
           {renderTemplate()}
+          {/* ✅ Nueva sección de alergias o enfermedades */}
         </div>
       </div>
     </div>

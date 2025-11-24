@@ -99,3 +99,81 @@
   }
 }
 
+.alergias-section {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  margin-top: 1.5rem;
+  max-width: 700px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.alergias-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #e6e9f0;
+  padding-bottom: 0.5rem;
+}
+
+.alergias-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.alergias-section label {
+  font-weight: 600;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.alergias-section input,
+.alergias-section textarea {
+  border: 1px solid #d0d7e2;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #f9fafc;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.alergias-section input:focus,
+.alergias-section textarea:focus {
+  outline: none;
+  border-color: #5c8df6;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(92, 141, 246, 0.15);
+}
+
+.alergias-section textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.alergias-section button {
+  align-self: flex-start;
+  background-color: #5c8df6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.alergias-section button:hover {
+  background-color: #4b7ae4;
+  transform: translateY(-1px);
+}
+
+.alergias-section button:active {
+  transform: translateY(1px);
+}
+
+

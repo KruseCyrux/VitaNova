@@ -16,7 +16,9 @@ import {
   FaPhoneAlt,
   FaPalette,
   FaChevronDown,
+
   FaHeartbeat, // 🩺 Nuevo ícono para la sección médica
+  FaHeartbeat, // 💓 icono nuevo para alergias
 } from "react-icons/fa";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
@@ -68,7 +70,7 @@ function Sidebar({ setActiveSection }) {
     setShowTemplates(false);
     alert(`✅ Plantilla "${template}" aplicada con éxito.`);
   };
-
+  // 🔹 Mostrar la plantilla actual
   const renderSelectedTemplate = () => {
     switch (styleConfig.template) {
       case "Clásica":
@@ -125,6 +127,9 @@ function Sidebar({ setActiveSection }) {
             <li onClick={() => setActiveSection("additional-info")}>
               <FaInfoCircle /> Adicional
             </li>
+            <li onClick={() => setActiveSection("alergias")}>
+              <FaHeartbeat /> Alergias / Enfermedades
+            </li>
           </ul>
         </nav>
 
@@ -162,7 +167,7 @@ function Sidebar({ setActiveSection }) {
         </button>
       </aside>
 
-      {/* 🔹 Vista previa emergente */}
+       {/* 🔹 Vista previa emergente */}
       {isPreviewOpen && (
         <PreviewPopup onClose={() => setIsPreviewOpen(false)}>
           {renderSelectedTemplate()}

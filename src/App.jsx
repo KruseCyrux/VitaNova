@@ -7,6 +7,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import WelcomeScreen from './pages/WelcomeScreen';
 import { CVProvider } from "./contexts/CVContext";
 import Contact from "./pages/Contact";
+import AlergiasForm from "./pages/AlergiasForm";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/contacto" element={<Contact />} /> 
+            <Route path="/alergias" element={<AlergiasForm />} />
+
             <Route
               path="/dashboard"
               element={

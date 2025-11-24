@@ -1,0 +1,104 @@
+.moderna-template {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+}
+
+/* 🔹 Encabezado */
+.moderna-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  gap: 1.5rem;
+}
+
+.moderna-photo {
+  width: 120px;          /* 🔸 Ajuste de tamaño */
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.header-left {
+  flex-shrink: 0;
+}
+
+.header-right {
+  flex: 1;
+}
+
+.moderna-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.moderna-header h2 {
+  margin: 0.2rem 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* 🔹 Contenido principal */
+.moderna-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.moderna-content section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #005f73;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 4px;
+}
+
+.moderna-content p,
+.moderna-content li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.item {
+  margin-bottom: 0.8rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-list li {
+  background-color: #e6f1f3;
+  color: #003f5c;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* 🔹 Responsivo */
+@media (max-width: 700px) {
+  .moderna-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .moderna-photo {
+    width: 100px;
+    height: 100px;
+  }
+}

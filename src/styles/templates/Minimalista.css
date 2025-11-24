@@ -1,0 +1,135 @@
+.minimalista-template {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔹 Sidebar lateral */
+.minimalista-sidebar {
+  width: 30%;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.minimalista-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.minimalista-sidebar hr {
+  width: 80%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* 🔹 Contenido principal */
+.minimalista-content {
+  width: 70%;
+  padding: 2rem 2.5rem;
+  background-color: #f8f9fb;
+}
+
+.minimalista-content section {
+  margin-bottom: 1.5rem;
+}
+
+.minimalista-content h3 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.item {
+  margin-bottom: 0.6rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skills-list li {
+  background-color: #e3e7ee;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  list-style: none;
+}
+
+.minimalista-template {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* 📌 Sidebar */
+.minimalista-sidebar {
+  width: 30%;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.minimalista-sidebar h2 {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+.minimalista-sidebar p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+/* 📸 Foto */
+.minimalista-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #fff;
+}
+
+/* 📄 Contenido principal */
+.minimalista-content {
+  width: 70%;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+}
+
+.minimalista-content section {
+  margin-bottom: 1.5rem;
+}
+
+.minimalista-content h3 {
+  color: #333;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+}
+
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills-list li {
+  background: #e0e0e0;
+  border-radius: 4px;
+  padding: 4px 8px;
+}

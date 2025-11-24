@@ -1,0 +1,101 @@
+.form-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  margin: 1.5rem auto;
+  width: 90%;
+  max-width: 700px;
+  transition: all 0.3s ease;
+}
+
+.form-section h4 {
+  font-size: 1.5rem;
+  color: #2e3a59;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.form-group input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* Botón principal */
+button[type="button"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+button[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+/* Lista de alergias agregadas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+li {
+  background: #022031ff;
+  border: 1px solid #dce3f0;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: #ffffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li strong {
+  color: #2e3a59;
+}
+
+/* Botón eliminar */
+li button {
+  background-color: #dc3545 !important;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+li button:hover {
+  background-color: #b02a37 !important;
+}

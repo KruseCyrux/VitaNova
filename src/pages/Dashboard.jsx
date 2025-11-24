@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
+
 import PersonalInfoSection from "../components/sections/PersonalInfoSection";
 import ProfileSection from "../components/sections/ProfileSection";
 import ExperienceSection from "../components/sections/ExperienceSection";
@@ -8,15 +9,17 @@ import SkillsSection from "../components/sections/SkillsSection";
 import LanguagesSection from "../components/sections/LanguagesSection";
 import CertificationsSection from "../components/sections/CertificationsSection";
 import ProjectsSection from "../components/sections/ProjectsSection";
-import MedicalSection from "../components/sections/MedicalSection"
+import MedicalSection from "../components/sections/MedicalSection";
 import AdditionalInfoSection from "../components/sections/AdditionalInfoSection";
 import PhotoUploadSection from "../components/sections/PhotoUploadSection";
+import AlergiasSection from "../components/sections/AlergiasSection";
+
 import "../styles/dashboard.css";
 import { useCV } from "../contexts/CVContext";
 
 function Dashboard() {
   const [activeSection, setActiveSection] = useState("personal-info");
-  const { styleConfig } = useCV(); // 🎨 obtener estilo actual
+  const { styleConfig } = useCV();
 
   const renderSection = () => {
     switch (activeSection) {
@@ -41,10 +44,12 @@ function Dashboard() {
         return <CertificationsSection />;
       case "projects":
         return <ProjectsSection />;
-      case "additional-info":
-        return <AdditionalInfoSection />;
       case "medical":
         return <MedicalSection />;
+      case "alergias":
+        return <AlergiasSection />;
+      case "additional-info":
+        return <AdditionalInfoSection />;
       default:
         return <PersonalInfoSection />;
     }
@@ -60,6 +65,7 @@ function Dashboard() {
       }}
     >
       <Sidebar setActiveSection={setActiveSection} />
+
       <main
         className="dashboard-main"
         style={{
@@ -75,6 +81,7 @@ function Dashboard() {
         >
           Editor de Currículum – {styleConfig.template}
         </h2>
+
         {renderSection()}
       </main>
     </div>

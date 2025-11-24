@@ -111,6 +111,7 @@ export const CVProvider = ({ children }) => {
       },
     ],
 
+
     // 🩺 Nueva sección médica
     medical: {
       bloodType: "",
@@ -132,6 +133,20 @@ export const CVProvider = ({ children }) => {
       lastCheckup: "",
       notes: "",
     },
+
+    // ✅ Nueva sección agregada correctamente
+    alergias: [
+      {
+        nombreAlergia: "",
+        tipo: "",
+        descripcion: "",
+        fechaDiagnostico: "",
+        tratamiento: "",
+        gravedad: "",
+        alergeno: "",
+        observaciones: "",
+      },
+    ],
   });
 
   // 🎨 Configuración de estilos (plantillas)

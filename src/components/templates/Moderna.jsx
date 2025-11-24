@@ -1,186 +1,164 @@
 import React from "react";
+import "../../styles/templates/Moderna.css";
 
 function Moderna({ cvData, styleConfig }) {
-  const personalInfo = cvData.personalInfo?.[0] || {};
-  const profile = cvData.profile?.[0] || {};
+  const personal = cvData.personalInfo?.[0] || {};
+
+  // 🧠 Función auxiliar para evitar errores al mostrar objetos
+  const renderText = (data) => {
+    if (!data) return "";
+    if (typeof data === "string") return data;
+    if (typeof data === "object")
+      return Object.values(data).filter(Boolean).join(" • ");
+    return "";
+  };
 
   return (
     <div
+      className="moderna-template"
       style={{
-        display: "flex",
         fontFamily: styleConfig.font || "Poppins, sans-serif",
-        backgroundColor: "#f5f7fa",
         color: "#333",
-        minHeight: "100vh",
+        backgroundColor: "#fff",
       }}
     >
-      {/* 🔹 Barra lateral izquierda */}
-      <aside
+      {/* 🔹 Encabezado principal */}
+      <header
+        className="moderna-header"
         style={{
-          width: "30%",
-          backgroundColor: styleConfig.color || "#1e90ff",
+          backgroundColor: styleConfig.color || "#005f73",
           color: "#fff",
-          padding: "2rem 1.5rem",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
         }}
       >
-        {cvData.photo && (
-          <img
-            src={cvData.photo}
-            alt="Foto de perfil"
-            style={{
-              width: "120px",
-              height: "120px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              marginBottom: "1.5rem",
-              border: "3px solid white",
-            }}
-          />
-        )}
-        <h1 style={{ textAlign: "center", fontSize: "1.8rem" }}>
-          {personalInfo.fullName || "Tu Nombre Completo"}
-        </h1>
-        <p style={{ textAlign: "center" }}>{personalInfo.email}</p>
-        <p style={{ textAlign: "center" }}>{personalInfo.phone}</p>
-        <p style={{ textAlign: "center" }}>{personalInfo.address}</p>
-
-        {/* 🔹 Sección lateral: Habilidades, Idiomas, Certificaciones */}
-        <div style={{ marginTop: "2rem", width: "100%" }}>
-          <h2 style={{ borderBottom: "2px solid #fff" }}>Habilidades</h2>
-          {cvData.skills?.length > 0 ? (
-            <ul style={{ paddingLeft: "1rem" }}>
-              {cvData.skills.map((skill, i) => (
-                <li key={i}>{skill.name}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>Sin habilidades</p>
-          )}
-
-          <h2 style={{ borderBottom: "2px solid #fff", marginTop: "1.5rem" }}>
-            Idiomas
-          </h2>
-          {cvData.languages?.length > 0 ? (
-            cvData.languages.map((lang, i) => (
-              <p key={i}>
-                {lang.name} – {lang.level}
-              </p>
-            ))
-          ) : (
-            <p>Sin idiomas</p>
-          )}
-
-          <h2 style={{ borderBottom: "2px solid #fff", marginTop: "1.5rem" }}>
-            Certificaciones
-          </h2>
-          {cvData.certifications?.length > 0 ? (
-            cvData.certifications.map((cert, i) => (
-              <p key={i}>
-                {cert.name} ({cert.year})
-              </p>
-            ))
-          ) : (
-            <p>Sin certificaciones</p>
+        <div className="header-left">
+          {cvData.photo && (
+            <img src={cvData.photo} alt="Foto" className="moderna-photo" />
           )}
         </div>
-      </aside>
+        <div className="header-right">
+          <h1>{personal.fullName || "Tu Nombre"}</h1>
+          <h2>{personal.profession || "Profesión"}</h2>
+          <p>{personal.email}</p>
+          <p>{personal.phone}</p>
+          <p>{personal.city}</p>
+        </div>
+      </header>
 
-      {/* 🔹 Contenido principal */}
-      <main style={{ flex: 1, padding: "2rem 3rem" }}>
-        {/* PERFIL PROFESIONAL */}
-        <section style={{ marginBottom: "1.5rem" }}>
-          <h2 style={{ color: styleConfig.color || "#1e90ff" }}>
-            Perfil Profesional
-          </h2>
-          <p>{profile.summary || "Resumen profesional"}</p>
-          <p>{profile.goals || "Objetivos profesionales"}</p>
-        </section>
+      {/* 🔹 Cuerpo principal */}
+      <main className="moderna-content">
+        {/* Perfil Profesional */}
+        {cvData.profile && (
+          <section>
+            <h3>Perfil Profesional</h3>
+            <p>{renderText(cvData.profile)}</p>
+          </section>
+        )}
 
-        {/* EXPERIENCIA */}
-        <section style={{ marginBottom: "1.5rem" }}>
-          <h2 style={{ color: styleConfig.color || "#1e90ff" }}>Experiencia</h2>
-          {cvData.experience?.length > 0 ? (
-            cvData.experience.map((exp, i) => (
-              <div key={i} style={{ marginBottom: "1rem" }}>
-                <h3>{exp.role}</h3>
-                <p style={{ fontWeight: "bold" }}>
-                  {exp.company} | {exp.startDate} – {exp.endDate || "Actual"}
-                </p>
-                <p>{exp.responsibilities}</p>
+        {/* Experiencia */}
+        {cvData.experience?.length > 0 && (
+          <section>
+            <h3>Experiencia</h3>
+            {cvData.experience.map((exp, i) => (
+              <div key={i} className="item">
+                <strong>{exp.title}</strong> — {exp.company} ({exp.start} - {exp.end})
+                <p>{exp.description}</p>
               </div>
-            ))
-          ) : (
-            <p>Sin experiencia agregada</p>
-          )}
-        </section>
+            ))}
+          </section>
+        )}
 
-        {/* EDUCACIÓN */}
-        <section style={{ marginBottom: "1.5rem" }}>
-          <h2 style={{ color: styleConfig.color || "#1e90ff" }}>Educación</h2>
-          {cvData.education?.length > 0 ? (
-            cvData.education.map((edu, i) => (
-              <div key={i}>
-                <h3>{edu.titulo}</h3>
-                <p>
-                  {edu.institucion} | {edu.fechaInicio} – {edu.fechaFin}
-                </p>
+        {/* Educación */}
+        {cvData.education?.length > 0 && (
+          <section>
+            <h3>Educación</h3>
+            {cvData.education.map((edu, i) => (
+              <div key={i} className="item">
+                <strong>{edu.degree}</strong> — {edu.institution} ({edu.year})
               </div>
-            ))
-          ) : (
-            <p>Sin educación agregada</p>
-          )}
-        </section>
+            ))}
+          </section>
+        )}
 
-        {/* PROYECTOS */}
-        <section style={{ marginBottom: "1.5rem" }}>
-          <h2 style={{ color: styleConfig.color || "#1e90ff" }}>Proyectos</h2>
-          {cvData.projects?.length > 0 ? (
-            cvData.projects.map((proj, i) => (
-              <div key={i}>
-                <h3>{proj.name}</h3>
-                <p>{proj.description}</p>
+        {/* Habilidades */}
+        {cvData.skills?.length > 0 && (
+          <section>
+            <h3>Habilidades</h3>
+            <ul className="skills-list">
+              {cvData.skills.map((skill, i) => (
+                <li key={i}>{renderText(skill.name || skill)}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Certificaciones */}
+        {cvData.certifications?.length > 0 && (
+          <section>
+            <h3>Certificaciones</h3>
+            {cvData.certifications.map((cert, i) => (
+              <div key={i} className="item">
+                <strong>{cert.name}</strong> — {cert.institution} ({cert.year})
               </div>
-            ))
-          ) : (
-            <p>Sin proyectos agregados</p>
-          )}
-        </section>
+            ))}
+          </section>
+        )}
 
-        {/* REFERENCIAS */}
-        <section style={{ marginBottom: "1.5rem" }}>
-          <h2 style={{ color: styleConfig.color || "#1e90ff" }}>Referencias</h2>
-          {cvData.references?.length > 0 ? (
-            cvData.references.map((ref, i) => (
-              <div key={i}>
-                <p>
-                  {ref.name} – {ref.contact}
-                </p>
+        {/* Idiomas */}
+        {cvData.languages?.length > 0 && (
+          <section>
+            <h3>Idiomas</h3>
+            <ul>
+              {cvData.languages.map((lang, i) => (
+                <li key={i}>
+                  {lang.language} — {lang.level}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Proyectos */}
+        {cvData.projects?.length > 0 && (
+          <section>
+            <h3>Proyectos</h3>
+            {cvData.projects.map((proj, i) => (
+              <div key={i} className="item">
+                <strong>{proj.name}</strong> — {proj.description}
               </div>
-            ))
-          ) : (
-            <p>Sin referencias agregadas</p>
-          )}
-        </section>
+            ))}
+          </section>
+        )}
 
-        {/* INFORMACIÓN ADICIONAL */}
-        <section>
-          <h2 style={{ color: styleConfig.color || "#1e90ff" }}>
-            Información Adicional
-          </h2>
-          {cvData.additionalInfo?.length > 0 ? (
-            cvData.additionalInfo.map((info, i) => <p key={i}>{info.detail}</p>)
-          ) : (
-            <p>Sin información adicional</p>
-          )}
-        </section>
+        {/* Referencias */}
+        {cvData.references?.length > 0 && (
+          <section>
+            <h3>Referencias</h3>
+            {cvData.references.map((ref, i) => (
+              <div key={i} className="item">
+                <strong>{ref.name}</strong> — {ref.contact}
+              </div>
+            ))}
+          </section>
+        )}
+
+        {/* Información Adicional */}
+        {cvData.additional && (
+          <section>
+            <h3>Información Adicional</h3>
+            <p>{renderText(cvData.additional)}</p>
+          </section>
+        )}
+
+        {/* Salud (Alergias o Enfermedades) */}
+        {cvData.health && (
+          <section>
+            <h3>Alergias o Enfermedades</h3>
+            <p>{renderText(cvData.health)}</p>
+          </section>
+        )}
       </main>
     </div>
   );
 }
 
 export default Moderna;
-
-

@@ -1,0 +1,101 @@
+.clasica-template {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #333333;
+  font-family: "Georgia", "Times New Roman", serif;
+  padding: 2.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+}
+
+/* 🔹 Encabezado */
+.clasica-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid #4a6fa5;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.clasica-header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+  border: 3px solid #4a6fa5;
+}
+
+.clasica-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+}
+
+.clasica-header h3 {
+  font-size: 1.2rem;
+  color: #666666;
+  margin-bottom: 0.5rem;
+}
+
+.clasica-header p {
+  font-size: 0.95rem;
+  margin: 0.1rem 0;
+}
+
+/* 🔹 Secciones */
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  font-size: 1.3rem;
+  color: #4a6fa5;
+  border-bottom: 2px solid #4a6fa5;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.2rem;
+}
+
+.item {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.item strong {
+  color: #222;
+}
+
+/* 🔹 Listas */
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* 🔹 Tipografía general */
+p, li {
+  font-size: 0.95rem;
+  color: #444444;
+}
+
+/* 🔹 Adaptación responsive */
+@media (max-width: 768px) {
+  .clasica-template {
+    padding: 1.5rem;
+  }
+
+  .clasica-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .clasica-header img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
